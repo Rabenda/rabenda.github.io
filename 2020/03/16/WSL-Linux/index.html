@@ -151,24 +151,8 @@
 </table>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入系统</span></span><br><span class="line">wsl -<span class="literal">-import</span> &lt;Distro&gt; &lt;InstallLocation&gt; &lt;FileName&gt; -<span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>导入完成之后 之后要做以下几个操作</p>
-<ul>
-<li>
-<p>设置密码</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建新用户</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G users,wheel,sudo,audio -s /bin/bash &lt;UserName&gt;</span><br><span class="line">passwd &lt;UserName&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>获取用户id</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id -u &lt;UserName&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置默认用户</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 获取 UUID</span><br><span class="line">Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss\ | Get-ItemProperty </span><br><span class="line">PSChildName 显示的就是 distro-UUID</span><br><span class="line"># 进入注册表</span><br><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\&#123;distro-UUID&#125;</span><br><span class="line"># 修改DefaultUid</span><br><span class="line">设置 DefaultUid 为 上一步获取的 id</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新用户</span></span><br><span class="line">useradd -m -G users,wheel,sudo,audio -s /bin/bash &lt;UserName&gt;</span><br><span class="line">passwd &lt;UserName&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取用户id</span></span><br><span class="line">id -u &lt;UserName&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置默认用户</span></span><br><span class="line"><span class="comment"># 获取 UUID</span></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss\ | <span class="built_in">Get-ItemProperty</span> </span><br><span class="line">PSChildName 显示的就是 distro<span class="literal">-UUID</span></span><br><span class="line"><span class="comment"># 进入注册表</span></span><br><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\&#123;distro<span class="literal">-UUID</span>&#125;</span><br><span class="line"><span class="comment"># 修改DefaultUid</span></span><br><span class="line">设置 DefaultUid 为 上一步获取的 id</span><br></pre></td></tr></table></figure>
 <p>这样子操作之后 wsl2 就以新建的用户启动了</p>
 <p>当然也可以设置其他的注册表项</p>
 <table>
