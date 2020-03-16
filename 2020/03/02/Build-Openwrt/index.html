@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Openwrt 折腾笔记"><meta name="keywords" content="Openwrt, lean's lede, x86, ACRH17, phicomm-k1, Rabenda的自言自语之地"><link rel="alternate" href="/generator" title="Rabenda的自言自语之地"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://rabenda.tk/2020/03/02/Build-Openwrt/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159539835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159539835-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Openwrt 折腾笔记 - Rabenda的自言自语之地</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rabenda的自言自语之地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Rabenda的自言自语之地</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Openwrt 折腾笔记
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-03-02
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#参战硬件"><span class="toc-text">参战硬件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phicomm-k1"><span class="toc-text">phicomm-k1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pandavan"><span class="toc-text">Pandavan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openwrt"><span class="toc-text">Openwrt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pandorabox"><span class="toc-text">PandoraBox</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rt-acrh17"><span class="toc-text">RT-ACRH17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#merlin"><span class="toc-text">Merlin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lean-s-lede"><span class="toc-text">Lean’s LEDE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pandorabox-v2"><span class="toc-text">PandoraBox</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#offical"><span class="toc-text">Offical</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3855u"><span class="toc-text">3855U</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件选择"><span class="toc-text">硬件选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#esxi-ikuai-lean-s-lede"><span class="toc-text">ESXi+iKuai+lean’s LEDE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openwrt-v2"><span class="toc-text">Openwrt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lean-s-lede-v2"><span class="toc-text">lean’s LEDE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h3 id="参战硬件"><a class="header-anchor" href="#参战硬件"></a><strong>参战硬件</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">硬件</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">phicomm-k1</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">学长送的</td>
+</tr>
+<tr>
+<td style="text-align:center">ASUS RT-ACRH17</td>
+<td style="text-align:center">429</td>
+<td style="text-align:center"><a href="https://item.jd.com/5186619.html" target="_blank" rel="noopener">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">3855U 6口 工控路由</td>
+<td style="text-align:center">820</td>
+<td style="text-align:center"><a href="https://detail.tmall.com/item.htm?id=576827354736" target="_blank" rel="noopener">淘宝</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="phicomm-k1"><a class="header-anchor" href="#phicomm-k1"></a><strong>phicomm-k1</strong></h3>
+<p>这个设备是一位不愿意透露姓名的学长送的<br>
+他刷好了Pandavan固件<br>
+这个设备后来还被我用来做交换机使用</p>
+<h4 id="pandavan"><a class="header-anchor" href="#pandavan"></a><strong>Pandavan</strong></h4>
+<p>最初我获得设备的时候就是这个固件 常用固件功能都有<br>
+最初我需要这个设备的原因是要在路由器上跑Shadowsocks<br>
+因为Android设备刷完<a href="https://opengapps.org/" target="_blank" rel="noopener">OpenGApps</a>需要连接Google登陆账号激活<br>
+路由器上跑代理是解决这个问题的办法<br>
+后来因为这个设备接口都是百兆所以我买了ACRH17替换掉</p>
+<h4 id="openwrt"><a class="header-anchor" href="#openwrt"></a><strong>Openwrt</strong></h4>
+<p>这固件是后来我想折腾Openwrt固件时候才开始刷进去的<br>
+我写了一个编译Dockerfile 把.config放入就可以直接docker build生产固件<br>
+后来我还写了自动上传到github<br>
+编译<a href="https://github.com/Rabenda/openwrt-phicomm-k1" target="_blank" rel="noopener">Docker地址</a><br>
+后来发现travis集成不能编译超过40分钟 docker hub也不能超过一定时间<br>
+在本地编了几次之后 编译机被拿走了 就没有在折腾了</p>
+<h4 id="pandorabox"><a class="header-anchor" href="#pandorabox"></a><strong>PandoraBox</strong></h4>
+<p>之后为了做学校项目 一个基于mqtt的智能家居系统<br>
+刷成了PandoraBox 就当作普通路由使用了</p>
+<h3 id="rt-acrh17"><a class="header-anchor" href="#rt-acrh17"></a><strong>RT-ACRH17</strong></h3>
+<p>这个机器宣称有<code>160MHz</code> 所以我就寻找了相关固件<br>
+这个机器配了一个USB3.0的接口 官方固件只支持2.0 所以需要第三方固件</p>
+<h4 id="merlin"><a class="header-anchor" href="#merlin"></a><strong>Merlin</strong></h4>
+<p>第一次选择的是<a href="https://www.right.com.cn/forum/thread-708359-1-1.html" target="_blank" rel="noopener">Merlin固件</a><br>
+正常来说是没有<a href="https://www.asuswrt-merlin.net" target="_blank" rel="noopener">Merlin</a><br>
+因为ACRH17使用的是高通的芯片 没有Merlin才是正常情况<br>
+Lean的固件有<code>160MHz</code> 但是实际上跑不上去</p>
+<h4 id="lean-s-lede"><a class="header-anchor" href="#lean-s-lede"></a><strong>Lean’s LEDE</strong></h4>
+<p>因为没找到<code>160MHz</code>的固件 我就使用了Merlin固件作者的LEDE来扩展功能<br>
+<a href="https://github.com/coolsnowwolf/lede" target="_blank" rel="noopener">Lean’s LEDE</a><br>
+不选择<a href="https://openwrt.org/" target="_blank" rel="noopener">Openwrt</a>官方的固件的原因是没有适配这个机型<br>
+LEDE扩展功能真的好多 但是当时懒了 直接用别人编好的固件</p>
+<h4 id="pandorabox-v2"><a class="header-anchor" href="#pandorabox-v2"></a><strong>PandoraBox</strong></h4>
+<p>第三次选择的是<a href="https://www.right.com.cn/forum/thread-318998-1-1.html" target="_blank" rel="noopener">PandoraBox固件</a><br>
+原因是我还是想要<code>160MHz</code> 毕竟这是学长忽悠我买这个机器的原因之一<br>
+这个固件我刷了两次之后 也刷了pb-boot和op-boot 刷了几次之后把ART分区数据弄丢了<br>
+结果这机器就显示自己是RT-AC82U 实际上华硕根本没有这个产品<br>
+ART分区丢失的话 信号就有问题了 所以在网上找了其他人的原厂固件和ART分区刷进去</p>
+<h4 id="offical"><a class="header-anchor" href="#offical"></a><strong>Offical</strong></h4>
+<p>后来完全刷回了官方固件 再后来就有了3855U软路由<br>
+之后这个设备就用做了AP 放在客厅里发挥AP的作用</p>
+<p><img src="/images/rt-acrh17_show.png" alt="rt-acrh17_show"></p>
+<h3 id="3855u"><a class="header-anchor" href="#3855u"></a><strong>3855U</strong></h3>
+<p>这个硬件是在我购买了小米电视4A后产生的需求<br>
+原本的ACRH17刷完lean’s LEDE的固件时候<br>
+对于网关SSR有了解码速度的需求<br>
+所以买了x86的软路由</p>
+<h4 id="硬件选择"><a class="header-anchor" href="#硬件选择"></a><strong>硬件选择</strong></h4>
+<p>店家有D525/J1900/3855U/3865U选择<br>
+不选D525的原因是这玩意超级老 没意思<br>
+J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一个<br>
+3865U排除的原因是使用DDR4内存 没钱买内存<br>
+使用3855U 我有空余DDR3内存和sata硬盘使用</p>
+<h4 id="esxi-ikuai-lean-s-lede"><a class="header-anchor" href="#esxi-ikuai-lean-s-lede"></a><strong>ESXi+iKuai+lean’s LEDE</strong></h4>
+<p>最初这个方案是我看了很多软路由介绍的视频<br>
+决定参考他们的方案<br>
+决定LEDE作为主路由 iKuai作为旁路由<br>
+加上一块480G的SATA3的SSD 一条16G的DDR3内存<br>
+实际安装下来遇到了如下的问题</p>
+<ul>
+<li>iKuai宣称的多播我无法正确使用</li>
+<li>iKuai的行为管理功能我实际上是不需要的</li>
+<li>iKuai的64位版本需要4GB内存</li>
+<li>ESXi直通网卡的时候 LEDE内部的网卡和外部网卡编号无法对应</li>
+<li>iKuai/LEDE/ESXi需要公用一个网口做混杂模式 否则无法相通</li>
+<li>LEDE带的mwan3多播 我使用之后不会做负载分流</li>
+<li>LEDE拨号时候固件缺少ipv6相关组件 无法获取ipv6</li>
+</ul>
+<p>编号无法对应的问题我查看内部外部网卡MAC地址解决了<br>
+因为我是用iKuai无法完成使用iKuai的目的<br>
+所以我移除了iKuai虚拟机 只用LEDE<br>
+又遇到了如下问题</p>
+<ul>
+<li>LEDE的固件是随便找的 可能有安全问题</li>
+<li>LEDE固件不能使用Openwrt的源</li>
+<li>LEDE固件因为是随便找的 结果我想要用某些功能无法完成</li>
+</ul>
+<p>种种问题 所以我决定移除这套方案</p>
+<h4 id="openwrt-v2"><a class="header-anchor" href="#openwrt-v2"></a><strong>Openwrt</strong></h4>
+<p>移除上一套方案后 想直接裸机使用Openwrt<br>
+所以就更换了硬盘 使用msata接口的三星PM810 32G<br>
+更换了一条海力士的4G内存条 这样才能物尽其用</p>
+<p>Openwrt有一个squashfs格式和ext4格式<br>
+前者我在硬路由上使用 软路由我决定使用后者<br>
+使用官方固件我成功获取了ipv6地址</p>
+<p>官方安装之后有如下问题</p>
+<ul>
+<li>Openwrt默认安装完不会占用整个硬盘空间</li>
+<li>Openwrt提供v2ray的维护者并不打算支持v2rayN提供的订阅格式</li>
+<li>Openwrt提供的ss/v2ray的方案都没有lean提供的ssr-plus好用</li>
+</ul>
+<p>第一个问题解决方案就是用Ubuntu live启动之后<br>
+用fdisk删除存放分区 再重新建立分区<br>
+起始的offset一致 不要抹去分区签名<br>
+就可以完全扩容了</p>
+<p>第二个问题 无解 可以修改源码</p>
+<p>第三个问题 可以选择移植ssr-plus到Openwrt<br>
+也可以选择使用其他的链接方案</p>
+<p>总之解决方案都是需要自己移植/编译<br>
+所以我选择放弃</p>
+<h4 id="lean-s-lede-v2"><a class="header-anchor" href="#lean-s-lede-v2"></a><strong>lean’s LEDE</strong></h4>
+<p>反正都需要编译了 索性就选择lean’s LEDE</p>
+<p>编译时候遇见的问题如下</p>
+<ul>
+<li>产生uefi启动的img并不能良好启动</li>
+<li>想直接扩容超过4G可能会超过U盘上fat32单个文件大小限制</li>
+<li>默认参数不支持ipv6 需要手工配置开启</li>
+</ul>
+<p>最终我选择了使用传统引导和分区为2Gb的方案<br>
+然后再利用扩容的方法使其完整使用硬盘</p>
+<p>本来我在固件中选择编译了Docker<br>
+结果我发现我这么多设备 我要用一个路由器去跑docker？<br>
+再想到我学长的话 - <strong>『路由器核心设备，勿动』</strong><br>
+遂放弃并且移除相关功能</p>
+<p><img src="/images/lede_show.png" alt="lede_show"></p>
+<p>我写了一个<a href="https://github.com/Rabenda/lean-lede-x64" target="_blank" rel="noopener">相关脚本合集</a></p>
+<p>然后我写了一个<a href="https://raw.githubusercontent.com/Rabenda/lean-lede-x64/master/Dockerfile" target="_blank" rel="noopener">Dockerfile</a><br>
+可以直接docker build生产LEDE-x64固件</p>
+<p>后来使用<a href="https://raw.githubusercontent.com/Rabenda/lean-lede-x64/master/.github/workflows/lean-lede-x64.yml" target="_blank" rel="noopener">github actions</a> 直接使用<a href="https://github.com/Rabenda/lean-lede-x64/actions" target="_blank" rel="noopener">CI</a>生成固件</p>
+<h3 id="结语"><a class="header-anchor" href="#结语"></a><strong>结语</strong></h3>
+<p><font size="6">少折腾路由器 越折腾你断网越久.jpg</font></p>
+<p>以上</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://rabenda.tk">Rabenda</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://rabenda.tk/2020/03/02/Build-Openwrt/">https://rabenda.tk/2020/03/02/Build-Openwrt/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Openwrt/">Openwrt</a>
+            <a href="/tags/lean-s-lede/">lean's lede</a>
+            <a href="/tags/x86/">x86</a>
+            <a href="/tags/ACRH17/">ACRH17</a>
+            <a href="/tags/phicomm-k1/">phicomm-k1</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/03/03/NAS/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">NAS 折腾笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/10/29/surge-mac-for-v2ray/">
+        <span class="next-text nav-default">Surge mac for v2ray</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:rabenda.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Rabenda_Issimo" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/rabenda" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/Sakura_DNUI" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/generator" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rabenda</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

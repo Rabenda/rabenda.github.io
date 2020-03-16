@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Oracle数据库运行在Docker里的相关问题"><meta name="keywords" content="docker, oracle, Rabenda的自言自语之地"><link rel="alternate" href="/generator" title="Rabenda的自言自语之地"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159539835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159539835-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Oracle数据库运行在Docker里的相关问题 - Rabenda的自言自语之地</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rabenda的自言自语之地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Rabenda的自言自语之地</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Oracle数据库运行在Docker里的相关问题
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-10
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-oracle-database-image-下载"><span class="toc-text">Docker Oracle Database Image 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简略使用方法"><span class="toc-text">简略使用方法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#万能帮助方法"><span class="toc-text">万能帮助方法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取更多关于docker的信息"><span class="toc-text">获取更多关于docker的信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for-windows-users：-for-neusoft-s-students"><span class="toc-text">For Windows users：(for neusoft’s students)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-windows-10-users："><span class="toc-text">For Windows 10 users：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是faq"><span class="toc-text">以下是FAQ:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-下载"><span class="toc-text">Docker 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-安装"><span class="toc-text">Docker 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-image下载速度特别慢？"><span class="toc-text">Docker-image下载速度特别慢？！</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行完命令-无反应"><span class="toc-text">运行完命令 无反应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#oracle数据库账号密码是多少？"><span class="toc-text">Oracle数据库账号密码是多少？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#怎么退出容器终端啊"><span class="toc-text">怎么退出容器终端啊</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何终止容器的运行？"><span class="toc-text">如何终止容器的运行？</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p><a href="https://github.com/MaksymBilenko/docker-oracle-12c" target="_blank" rel="noopener">MaksymBilenko/docker-oracle-12c</a><br>
+以上是oracle-database 12c的Docker镜像 使用说明在项目中</p>
+<p><a href="https://en.wikipedia.org/wiki/Docker_(software)" target="_blank" rel="noopener">Docker</a> 镜像适应于 <a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a> / <a href="https://en.wikipedia.org/wiki/MacOS" target="_blank" rel="noopener">macOS</a> / <a href="https://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener">Windows</a></p>
+<h3 id="docker-oracle-database-image-下载"><a class="header-anchor" href="#docker-oracle-database-image-下载"></a>Docker Oracle Database Image 下载</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sath89/oracle-12c</span><br></pre></td></tr></table></figure>
+<h3 id="简略使用方法"><a class="header-anchor" href="#简略使用方法"></a>简略使用方法:</h3>
+<p>以下内容需要在宿主机(host)输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建oracle-database容器实例并且在后台以守护进程运行 (一次性命令 删除实例后可以重新运行生成新实例)</span></span><br><span class="line">docker run --name oracle_database -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c</span><br><span class="line"><span class="comment"># 进入docker-oracle-database容器终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -it oracle_database /bin/bash </span><br><span class="line"><span class="comment"># 终止运行docker-oracle-database容器</span></span><br><span class="line">docker stop oracle_database</span><br><span class="line"><span class="comment"># 启动运行docker-oracle-database容器</span></span><br><span class="line">docker start oracle_database</span><br><span class="line"><span class="comment"># 重新启动docker-oracle-database容器</span></span><br><span class="line">docker restart oracle_database</span><br><span class="line"><span class="comment"># 删除此docker-oracle-database容器实例</span></span><br><span class="line">docker rm oracle_database</span><br></pre></td></tr></table></figure>
+<h3 id="万能帮助方法"><a class="header-anchor" href="#万能帮助方法"></a>万能帮助方法:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --<span class="built_in">help</span></span><br><span class="line">docker [COMMAND] --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取更多关于docker的信息"><a class="header-anchor" href="#获取更多关于docker的信息"></a>获取更多关于docker的信息</h3>
+<ul>
+<li><a href="https://docs.docker.com/" target="_blank" rel="noopener">点击前往 Docker Docs</a></li>
+<li><a href="http://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">菜鸟教程的 Docker 教程</a></li>
+</ul>
+<h4 id="for-windows-users：-for-neusoft-s-students"><a class="header-anchor" href="#for-windows-users：-for-neusoft-s-students"></a>For Windows users：(for neusoft’s students)</h4>
+<p><a href="http://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">请点击阅读 如何在Windows上安装Docker</a></p>
+<h4 id="for-windows-10-users："><a class="header-anchor" href="#for-windows-10-users："></a>For Windows 10 users：</h4>
+<p>TL;DR 总之就是你开启了Docker 可能会与你的大数据项目的虚拟机不兼容</p>
+<p>使用Docker时候可能会修改你的Windows虚拟架构 启动组件 <a href="https://en.wikipedia.org/wiki/Hyper-V" target="_blank" rel="noopener">Hyper-V</a><br>
+『Warning』启动Hyper-V组件会使你的Windows也虚拟在Hyper-V架构上面<br>
+可能会有部分性能损失（估计在10%-20%左右）<br>
+而且会和现有的半虚拟化冲突（简而言之就是开启之后无法使用 <a href="https://en.wikipedia.org/wiki/VMware_Workstation" target="_blank" rel="noopener">VMware</a> &amp; <a href="https://en.wikipedia.org/wiki/VirtualBox" target="_blank" rel="noopener">VirtualBox</a>）<br>
+（不建议VirtualBox启动软件虚拟化 因为那样虚拟机的性能极低 而且无法虚拟64位系统）</p>
+<p>2020/03/03 更新：<br>
+在未来的<a href="https://docs.microsoft.com/en-us/windows-insider/at-home/whats-new-wip-at-home-20h1" target="_blank" rel="noopener">Windows 10 20H1</a>/<a href="https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html" target="_blank" rel="noopener">VMware 20H1</a>/<a href="https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=90853" target="_blank" rel="noopener">VirtualBox 6.0</a> Hyper-V与其他虚拟化软件相兼容</p>
+<h3 id="以下是faq"><a class="header-anchor" href="#以下是faq"></a>以下是FAQ:</h3>
+<h4 id="docker-下载"><a class="header-anchor" href="#docker-下载"></a>Docker 下载</h4>
+<p><a href="https://www.docker.com/community-edition" target="_blank" rel="noopener">Docker-ce版本下载</a></p>
+<h4 id="docker-安装"><a class="header-anchor" href="#docker-安装"></a>Docker 安装</h4>
+<p>请选择对应系统安装教程</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="http://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">Windows安装</a></th>
+<th style="text-align:center"><a href="http://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">macOS安装</a></th>
+<th style="text-align:center"><a href="http://www.runoob.com/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">Ubuntu安装</a></th>
+<th style="text-align:center"><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS安装</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h4 id="docker-image下载速度特别慢？"><a class="header-anchor" href="#docker-image下载速度特别慢？"></a>Docker-image下载速度特别慢？！</h4>
+<p>以下三种方法可选择</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/26d0ebd86673" target="_blank" rel="noopener">为 Docker 设置代理</a></li>
+<li><a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="noopener">proxychains-ng 强制代理软件</a></li>
+<li><a href="https://yq.aliyun.com/articles/29941" target="_blank" rel="noopener">aliyun mirrors 镜像加速</a></li>
+</ul>
+<h4 id="运行完命令-无反应"><a class="header-anchor" href="#运行完命令-无反应"></a>运行完命令 无反应</h4>
+<p>运行完<code>docker run --name oracle_database -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c</code> 就返回一串随机数</p>
+<ul>
+<li>首先你需要知道 <code>-d</code> 参数的意思是后台运行 所以需要用 <code>docker exec</code> 进入容器</li>
+<li>执行 <code>docker exec -it oracle_database /bin/bash</code> 就可以进入容器终端了</li>
+<li>此时执行 <code>sqlplus</code> 就可以连接数据库了</li>
+</ul>
+<h4 id="oracle数据库账号密码是多少？"><a class="header-anchor" href="#oracle数据库账号密码是多少？"></a>Oracle数据库账号密码是多少？</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Account</th>
+<th style="text-align:center">Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SYSTEM</code></td>
+<td style="text-align:center"><code>oracle</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SYS</code></td>
+<td style="text-align:center"><code>oracle</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SCOTT</code></td>
+<td style="text-align:center"><code>tiger</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="怎么退出容器终端啊"><a class="header-anchor" href="#怎么退出容器终端啊"></a>怎么退出容器终端啊</h4>
+<p>在终端输入命令<code>exit</code> 按Enter就可以退出终端了</p>
+<h4 id="如何终止容器的运行？"><a class="header-anchor" href="#如何终止容器的运行？"></a>如何终止容器的运行？</h4>
+<p>在终端里输入 <code>docker stop oracle_database</code> 就可以终止容器运行了</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://rabenda.tk">Rabenda</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/">https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/docker/">docker</a>
+            <a href="/tags/oracle/">oracle</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">sunpinyin双拼问题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:rabenda.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Rabenda_Issimo" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/rabenda" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/Sakura_DNUI" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/generator" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rabenda</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

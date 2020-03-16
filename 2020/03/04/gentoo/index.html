@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Gentoo 安装笔记"><meta name="keywords" content="OS, Hyper-V, Linux, Gentoo, Rabenda的自言自语之地"><link rel="alternate" href="/generator" title="Rabenda的自言自语之地"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://rabenda.tk/2020/03/04/gentoo/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159539835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159539835-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Gentoo 安装笔记 - Rabenda的自言自语之地</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rabenda的自言自语之地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Rabenda的自言自语之地</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Gentoo 安装笔记
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-03-04
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开宗明义"><span class="toc-text">开宗明义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不选择桌面的原因"><span class="toc-text">不选择桌面的原因</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境与分区方案"><span class="toc-text">安装环境与分区方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hyper-v-资源分配方案"><span class="toc-text">Hyper-V 资源分配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分区方案"><span class="toc-text">分区方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-gentoo"><span class="toc-text">安装 Gentoo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分区与挂载"><span class="toc-text">分区与挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建分区"><span class="toc-text">创建分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化分区"><span class="toc-text">格式化分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载分区"><span class="toc-text">挂载分区</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="开宗明义"><a class="header-anchor" href="#开宗明义"></a>开宗明义</h2>
+<p><font size="6">Linux 就应该不要选择使用桌面</font></p>
+<h3 id="不选择桌面的原因"><a class="header-anchor" href="#不选择桌面的原因"></a>不选择桌面的原因</h3>
+<p>可以节省你大量折腾的时间 包括但不限于以下内容<br>
+GNOME 3/KDE 5/Xfce/Mate 等桌面的选择、配置、美化 (我有强迫症)<br>
+Windows 上的工具/软件的替代品 (QQ/Wechat etc.)</p>
+<h2 id="安装环境与分区方案"><a class="header-anchor" href="#安装环境与分区方案"></a>安装环境与分区方案</h2>
+<p>Windows 10 1909 的 Hyper-V<br>
+Ubuntu 18.04.3</p>
+<p>以下操作都假设在 <code>root</code> 用户下操作</p>
+<h3 id="hyper-v-资源分配方案"><a class="header-anchor" href="#hyper-v-资源分配方案"></a>Hyper-V 资源分配方案</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">资源</th>
+<th style="text-align:center">–</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cpu</td>
+<td style="text-align:center">2 core</td>
+</tr>
+<tr>
+<td style="text-align:center">ram</td>
+<td style="text-align:center">4 GB</td>
+</tr>
+<tr>
+<td style="text-align:center">网卡</td>
+<td style="text-align:center">Hyper-V 虚拟网卡(桥接)</td>
+</tr>
+<tr>
+<td style="text-align:center">硬盘</td>
+<td style="text-align:center">光威悍将 480GB(直通)</td>
+</tr>
+</tbody>
+</table>
+<p>选择桥接是因为我想把设备都放在一个子网下面<br>
+这个方案适合不移动的台式机 笔记本应该选择 NAT 方案</p>
+<p>硬盘直通的原因是不想占用硬盘上的空间 正好有闲置硬盘<br>
+就直通进去了 坏处是不能享受虚拟机快照功能</p>
+<h3 id="分区方案"><a class="header-anchor" href="#分区方案"></a>分区方案</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分区</th>
+<th style="text-align:left">磁盘格式</th>
+<th style="text-align:left">分区大小</th>
+<th style="text-align:left">btrfs 子卷</th>
+<th style="text-align:left">挂载点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">/dev/sda1</td>
+<td style="text-align:left">fat32</td>
+<td style="text-align:left">2GB</td>
+<td style="text-align:left">–</td>
+<td style="text-align:left">/boot</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sda2</td>
+<td style="text-align:left">swap</td>
+<td style="text-align:left">8GB</td>
+<td style="text-align:left">–</td>
+<td style="text-align:left">–</td>
+</tr>
+<tr>
+<td style="text-align:left">/dev/sda3</td>
+<td style="text-align:left">btrfs</td>
+<td style="text-align:left">438GB</td>
+<td style="text-align:left">rootfs</td>
+<td style="text-align:left">/</td>
+</tr>
+<tr>
+<td style="text-align:left">–</td>
+<td style="text-align:left">–</td>
+<td style="text-align:left">–</td>
+<td style="text-align:left">homefs</td>
+<td style="text-align:left">/home</td>
+</tr>
+</tbody>
+</table>
+<p><code>boot</code> 分区分配 2GB 的原因是我喜欢把内核放在 boot 分区<br>
+不希望因为多安装几个内核就需要手动移除旧版内核</p>
+<p><code>swap</code> 分区创建的原因是 <code>linux 5.0</code> 之前 <code>btrfs</code> 分区不支持使用 <code>swapfile</code><br>
+现在稳定内核是 <code>4.19.97</code> 所以还是创建 swap 分区 防止编译爆内存</p>
+<p>剩余空间使用 <code>btrfs</code> 文件系统的原因是我想剩余分区共享大小还能单独备份<br>
+最初在 <code>ThinkPad t450s</code> 上实现 <code>FreeBSD</code> 与 <code>Gentoo</code> 公用 <code>zfs</code> 分区的习惯保留下来</p>
+<h2 id="安装-gentoo"><a class="header-anchor" href="#安装-gentoo"></a>安装 Gentoo</h2>
+<h3 id="分区与挂载"><a class="header-anchor" href="#分区与挂载"></a>分区与挂载</h3>
+<h4 id="创建分区"><a class="header-anchor" href="#创建分区"></a>创建分区</h4>
+<p>分区创建 使用 <code>fdisk</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure>
+<h4 id="格式化分区"><a class="header-anchor" href="#格式化分区"></a>格式化分区</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式化 boot 分区</span></span><br><span class="line">mkfs.vfat -F32 /dev/sda1</span><br><span class="line"><span class="comment"># 格式化 btrfs 分区</span></span><br><span class="line">mkfs.btrfs -f /dev/sda3</span><br><span class="line"><span class="comment"># 格式化 swap 分区</span></span><br><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure>
+<h4 id="挂载分区"><a class="header-anchor" href="#挂载分区"></a>挂载分区</h4>
+<p>依据 Gentoo 安装文档 我们创建 <code>/mnt/gentoo</code> 分区并挂载相关分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 /mnt/gentoo</span></span><br><span class="line">mkdir -p /mnt/gentoo</span><br><span class="line"><span class="comment"># 挂载 btrfs 分区</span></span><br><span class="line">mount /dev/sda3 /mnt/gentoo</span><br><span class="line"><span class="comment"># 创建 btrfs 子卷</span></span><br><span class="line"><span class="built_in">cd</span> /mnt/gentoo</span><br><span class="line">btrfs subvol create rootfs</span><br><span class="line">btrfs subvol create hometfs</span><br><span class="line"><span class="comment"># 解除 btrfs 分区挂载并挂载相应子卷</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">umount /dev/sda3</span><br><span class="line">mount /dev/sda3 /mnt/gentoo -o subvol=rootfs,compress=zstd,noatime,discard,ssd,space_cache</span><br><span class="line">mkdir /mnt/gentoo/home</span><br><span class="line">mount /dev/sda3 /mnt/gentoo/home -o subvol=homefs,compress=zstd,noatime,discard,ssd,space_cache</span><br><span class="line"><span class="comment"># 挂载 boot 分区</span></span><br><span class="line">mkdir /mnt/gentoo/boot</span><br><span class="line">mount /dev/sda1 /mnt/gentoo/boot</span><br><span class="line"><span class="comment"># 挂载 swap 分区</span></span><br><span class="line">swapon /dev/sda2</span><br></pre></td></tr></table></figure>
+<p>-o 后面跟着 硬盘优化选项，如下表所示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">硬盘类型</th>
+<th style="text-align:left">优化选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SSD</td>
+<td style="text-align:left">compress=zstd,noatime,discard,ssd,space_cache</td>
+</tr>
+<tr>
+<td style="text-align:left">HDD</td>
+<td style="text-align:left">compress-force=zstd,noatime,autodefrag,space_cache</td>
+</tr>
+</tbody>
+</table>
+<p>其中压缩选项我们选择了 <code>facebook</code> 的 <a href="https://facebook.github.io/zstd/" target="_blank" rel="noopener">zstd</a><br>
+选用新潮压缩技术 做最炫酷的崽</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://rabenda.tk">Rabenda</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://rabenda.tk/2020/03/04/gentoo/">https://rabenda.tk/2020/03/04/gentoo/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/OS/">OS</a>
+            <a href="/tags/Hyper-V/">Hyper-V</a>
+            <a href="/tags/Linux/">Linux</a>
+            <a href="/tags/Gentoo/">Gentoo</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/03/16/WSL-Linux/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">WSL2的Linux安装与使用</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/03/03/NAS/">
+        <span class="next-text nav-default">NAS 折腾笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:rabenda.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Rabenda_Issimo" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/rabenda" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/Sakura_DNUI" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/generator" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rabenda</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

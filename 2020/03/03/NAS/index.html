@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="NAS 折腾笔记"><meta name="keywords" content="FreeBSD, NAS, Linux, DSM, FreeNAS, J1900, Rabenda的自言自语之地"><link rel="alternate" href="/generator" title="Rabenda的自言自语之地"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://rabenda.tk/2020/03/03/NAS/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159539835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159539835-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>NAS 折腾笔记 - Rabenda的自言自语之地</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rabenda的自言自语之地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Rabenda的自言自语之地</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">NAS 折腾笔记
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-03-03
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是nas"><span class="toc-text">什么是NAS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用nas"><span class="toc-text">为什么使用NAS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现在持有的机种"><span class="toc-text">现在持有的机种</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nas-系统"><span class="toc-text">NAS 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成品-nas-系统"><span class="toc-text">成品 NAS 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synology-出品的-dsm-俗称群晖"><span class="toc-text">Synology 出品的 DSM (俗称群晖)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#专门-nas-系统"><span class="toc-text">专门 NAS 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#freenas"><span class="toc-text">FreeNAS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u-nas-万由nas"><span class="toc-text">U-nas (万由NAS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openmediavault-omv"><span class="toc-text">OpenMediaVault (OMV)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rockstor"><span class="toc-text">Rockstor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unraid"><span class="toc-text">UnRaid</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现在正在服役的-nas-机器"><span class="toc-text">现在正在服役的 NAS 机器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synology-ds218"><span class="toc-text">Synology DS218+</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#j1900"><span class="toc-text">J1900</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="什么是nas"><a class="header-anchor" href="#什么是nas"></a>什么是NAS</h2>
+<p>網路附加儲存（英語：Network Attached Storage，缩写：NAS），是一種專門的資料儲存技術的名稱，它可以直接連接在電腦網路上面，對異質網路使用者提供了集中式資料存取服務。</p>
+<h2 id="为什么使用nas"><a class="header-anchor" href="#为什么使用nas"></a>为什么使用NAS</h2>
+<p>想要保存一些数据和备份系统(多一层保险)</p>
+<h2 id="现在持有的机种"><a class="header-anchor" href="#现在持有的机种"></a>现在持有的机种</h2>
+<ul>
+<li>Synology DS218+ 二盘位</li>
+<li>J1900 四盘位组装机</li>
+</ul>
+<h2 id="nas-系统"><a class="header-anchor" href="#nas-系统"></a>NAS 系统</h2>
+<h3 id="成品-nas-系统"><a class="header-anchor" href="#成品-nas-系统"></a>成品 NAS 系统</h3>
+<h4 id="synology-出品的-dsm-俗称群晖"><a class="header-anchor" href="#synology-出品的-dsm-俗称群晖"></a>Synology 出品的 DSM (俗称群晖)</h4>
+<ul>
+<li></li>
+</ul>
+<h3 id="专门-nas-系统"><a class="header-anchor" href="#专门-nas-系统"></a>专门 NAS 系统</h3>
+<h4 id="freenas"><a class="header-anchor" href="#freenas"></a>FreeNAS</h4>
+<h4 id="u-nas-万由nas"><a class="header-anchor" href="#u-nas-万由nas"></a>U-nas (万由NAS)</h4>
+<h4 id="openmediavault-omv"><a class="header-anchor" href="#openmediavault-omv"></a>OpenMediaVault (OMV)</h4>
+<h4 id="rockstor"><a class="header-anchor" href="#rockstor"></a>Rockstor</h4>
+<h4 id="unraid"><a class="header-anchor" href="#unraid"></a>UnRaid</h4>
+<p>// ToDo</p>
+<h2 id="现在正在服役的-nas-机器"><a class="header-anchor" href="#现在正在服役的-nas-机器"></a>现在正在服役的 NAS 机器</h2>
+<h3 id="synology-ds218"><a class="header-anchor" href="#synology-ds218"></a>Synology DS218+</h3>
+<p>// ToDo</p>
+<h3 id="j1900"><a class="header-anchor" href="#j1900"></a>J1900</h3>
+<p>// ToDo</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://rabenda.tk">Rabenda</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://rabenda.tk/2020/03/03/NAS/">https://rabenda.tk/2020/03/03/NAS/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/FreeBSD/">FreeBSD</a>
+            <a href="/tags/NAS/">NAS</a>
+            <a href="/tags/Linux/">Linux</a>
+            <a href="/tags/DSM/">DSM</a>
+            <a href="/tags/FreeNAS/">FreeNAS</a>
+            <a href="/tags/J1900/">J1900</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/03/04/gentoo/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Gentoo 安装笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/03/02/Build-Openwrt/">
+        <span class="next-text nav-default">Openwrt 折腾笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:rabenda.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Rabenda_Issimo" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/rabenda" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/Sakura_DNUI" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/generator" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rabenda</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

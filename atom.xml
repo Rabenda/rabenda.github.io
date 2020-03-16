@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rabenda的自言自语之地</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://rabenda.tk/"/>
+  <updated>2020-03-16T09:02:38.000Z</updated>
+  <id>https://rabenda.tk/</id>
+  
+  <author>
+    <name>Rabenda</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL2的Linux安装与使用</title>
+    <link href="https://rabenda.tk/2020/03/16/WSL-Linux/"/>
+    <id>https://rabenda.tk/2020/03/16/WSL-Linux/</id>
+    <published>2020-03-16T07:33:15.000Z</published>
+    <updated>2020-03-16T09:02:38.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;开宗明义&lt;/h1&gt;
+&lt;p&gt;&lt;font size=&quot;6&quot;&gt;不推荐wsl1转制成wsl2&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;原因就是再转制的过程中 文件的mode属性会丢失&lt;/p&gt;
+&lt;p&gt;也不推荐相互转 因为文件系统不同
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://rabenda.tk/tags/Ubuntu/"/>
+    
+      <category term="Gentoo" scheme="https://rabenda.tk/tags/Gentoo/"/>
+    
+      <category term="linux" scheme="https://rabenda.tk/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gentoo 安装笔记</title>
+    <link href="https://rabenda.tk/2020/03/04/gentoo/"/>
+    <id>https://rabenda.tk/2020/03/04/gentoo/</id>
+    <published>2020-03-03T19:34:06.000Z</published>
+    <updated>2020-03-16T08:35:44.620Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h2&gt;
+&lt;p&gt;&lt;font size=&quot;6&quot;&gt;Linux 就应该不要选择使用桌面&lt;/font&gt;&lt;/p&gt;
+&lt;h3 id=&quot;不选择桌面的原因&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://rabenda.tk/tags/OS/"/>
+    
+      <category term="Hyper-V" scheme="https://rabenda.tk/tags/Hyper-V/"/>
+    
+      <category term="Linux" scheme="https://rabenda.tk/tags/Linux/"/>
+    
+      <category term="Gentoo" scheme="https://rabenda.tk/tags/Gentoo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NAS 折腾笔记</title>
+    <link href="https://rabenda.tk/2020/03/03/NAS/"/>
+    <id>https://rabenda.tk/2020/03/03/NAS/</id>
+    <published>2020-03-03T00:23:48.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是nas&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#什么是nas&quot;&gt;&lt;/a&gt;什么是NAS&lt;/h2&gt;
+&lt;p&gt;網路附加儲存（英語：Network Attached
+        
+      
+    
+    </summary>
+    
+    
+      <category term="FreeBSD" scheme="https://rabenda.tk/tags/FreeBSD/"/>
+    
+      <category term="NAS" scheme="https://rabenda.tk/tags/NAS/"/>
+    
+      <category term="Linux" scheme="https://rabenda.tk/tags/Linux/"/>
+    
+      <category term="DSM" scheme="https://rabenda.tk/tags/DSM/"/>
+    
+      <category term="FreeNAS" scheme="https://rabenda.tk/tags/FreeNAS/"/>
+    
+      <category term="J1900" scheme="https://rabenda.tk/tags/J1900/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Openwrt 折腾笔记</title>
+    <link href="https://rabenda.tk/2020/03/02/Build-Openwrt/"/>
+    <id>https://rabenda.tk/2020/03/02/Build-Openwrt/</id>
+    <published>2020-03-02T15:52:06.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;参战硬件&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#参战硬件&quot;&gt;&lt;/a&gt;&lt;strong&gt;参战硬件&lt;/strong&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Openwrt" scheme="https://rabenda.tk/tags/Openwrt/"/>
+    
+      <category term="lean&#39;s lede" scheme="https://rabenda.tk/tags/lean-s-lede/"/>
+    
+      <category term="x86" scheme="https://rabenda.tk/tags/x86/"/>
+    
+      <category term="ACRH17" scheme="https://rabenda.tk/tags/ACRH17/"/>
+    
+      <category term="phicomm-k1" scheme="https://rabenda.tk/tags/phicomm-k1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Surge mac for v2ray</title>
+    <link href="https://rabenda.tk/2019/10/29/surge-mac-for-v2ray/"/>
+    <id>https://rabenda.tk/2019/10/29/surge-mac-for-v2ray/</id>
+    <published>2019-10-29T09:53:03.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;ssr&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ssr&quot;&gt;&lt;/a&gt;SSR&lt;/h3&gt;
+&lt;p&gt;之前在朋友家里被骗合购&lt;a href=&quot;https://nssurge.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="v2ray" scheme="https://rabenda.tk/tags/v2ray/"/>
+    
+      <category term="surge" scheme="https://rabenda.tk/tags/surge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ryzen-Machine with Hyper-V</title>
+    <link href="https://rabenda.tk/2019/10/25/Ryzen-Machine/"/>
+    <id>https://rabenda.tk/2019/10/25/Ryzen-Machine/</id>
+    <published>2019-10-25T00:41:48.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
+&lt;p&gt;&lt;font size=&quot;8&quot;&gt;台式机真香&lt;/font&gt;&lt;/p&gt;
+&lt;h3 id=&quot;预算配置&quot;&gt;&lt;a class=&quot;header-anchor&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Ryzen" scheme="https://rabenda.tk/tags/Ryzen/"/>
+    
+      <category term="RD500" scheme="https://rabenda.tk/tags/RD500/"/>
+    
+      <category term="SN550" scheme="https://rabenda.tk/tags/SN550/"/>
+    
+      <category term="Windows 10" scheme="https://rabenda.tk/tags/Windows-10/"/>
+    
+      <category term="Hyper-V" scheme="https://rabenda.tk/tags/Hyper-V/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ThinkPad x1 carbon 6th</title>
+    <link href="https://rabenda.tk/2019/07/28/new-laptop/"/>
+    <id>https://rabenda.tk/2019/07/28/new-laptop/</id>
+    <published>2019-07-27T21:19:50.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
+&lt;p&gt;&lt;font size=&quot;6&quot;&gt;&lt;strong&gt;没事就不要碰笔记本，更不要碰商务本&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="FreeBSD" scheme="https://rabenda.tk/tags/FreeBSD/"/>
+    
+      <category term="ThinkPad" scheme="https://rabenda.tk/tags/ThinkPad/"/>
+    
+      <category term="x1c_6th" scheme="https://rabenda.tk/tags/x1c-6th/"/>
+    
+      <category term="laptop" scheme="https://rabenda.tk/tags/laptop/"/>
+    
+      <category term="闲鱼" scheme="https://rabenda.tk/tags/%E9%97%B2%E9%B1%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人的FreeBSD的折腾笔记</title>
+    <link href="https://rabenda.tk/2018/12/14/Install-FreeBSD/"/>
+    <id>https://rabenda.tk/2018/12/14/Install-FreeBSD/</id>
+    <published>2018-12-13T18:02:54.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
+&lt;p&gt;&lt;font size=&quot;6&quot;&gt;&lt;strong&gt;Unix系统就不要搞Xorg这种幺蛾子了&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://rabenda.tk/tags/OS/"/>
+    
+      <category term="FreeBSD" scheme="https://rabenda.tk/tags/FreeBSD/"/>
+    
+      <category term="ThinkPad" scheme="https://rabenda.tk/tags/ThinkPad/"/>
+    
+      <category term="x1c_6th" scheme="https://rabenda.tk/tags/x1c-6th/"/>
+    
+      <category term="laptop" scheme="https://rabenda.tk/tags/laptop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sunpinyin双拼问题</title>
+    <link href="https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/"/>
+    <id>https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/</id>
+    <published>2018-05-10T10:48:48.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;为什么不用sogou拼音&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#为什么不用sogou拼音&quot;&gt;&lt;/a&gt;为什么不用sogou拼音&lt;/h3&gt;
+&lt;p&gt;我脑抽 fcitx死活玩不对 而且听某人说 ibus和gnome集成的不错&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://rabenda.tk/tags/Ubuntu/"/>
+    
+      <category term="OS" scheme="https://rabenda.tk/tags/OS/"/>
+    
+      <category term="pinyin" scheme="https://rabenda.tk/tags/pinyin/"/>
+    
+      <category term="Ubuntu 17.10" scheme="https://rabenda.tk/tags/Ubuntu-17-10/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle数据库运行在Docker里的相关问题</title>
+    <link href="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/"/>
+    <id>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</id>
+    <published>2018-05-10T08:27:12.000Z</published>
+    <updated>2020-03-16T06:09:02.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://github.com/MaksymBilenko/docker-oracle-12c&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://rabenda.tk/tags/docker/"/>
+    
+      <category term="oracle" scheme="https://rabenda.tk/tags/oracle/"/>
+    
+  </entry>
+  
+</feed>

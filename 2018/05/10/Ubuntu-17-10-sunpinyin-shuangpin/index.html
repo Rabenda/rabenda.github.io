@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="sunpinyin双拼问题"><meta name="keywords" content="Ubuntu, OS, pinyin, Ubuntu 17.10, Rabenda的自言自语之地"><link rel="alternate" href="/generator" title="Rabenda的自言自语之地"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159539835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159539835-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>sunpinyin双拼问题 - Rabenda的自言自语之地</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rabenda的自言自语之地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Rabenda的自言自语之地</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">sunpinyin双拼问题
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-10
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么不用sogou拼音"><span class="toc-text">为什么不用sogou拼音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sunpinyin有什么问题"><span class="toc-text">Sunpinyin有什么问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#叛教-libpinyin赛高"><span class="toc-text">叛教 libpinyin赛高</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h3 id="为什么不用sogou拼音"><a class="header-anchor" href="#为什么不用sogou拼音"></a>为什么不用sogou拼音</h3>
+<p>我脑抽 fcitx死活玩不对 而且听某人说 ibus和gnome集成的不错</p>
+<h3 id="sunpinyin有什么问题"><a class="header-anchor" href="#sunpinyin有什么问题"></a>Sunpinyin有什么问题</h3>
+<p>默认情况下 安装ibus-sunpinyin 是无法打开preference的</p>
+<h3 id="原因"><a class="header-anchor" href="#原因"></a>原因</h3>
+<p>就是缺个依赖包 而且这个依赖包在14.04存在 之后的版本莫名其妙的就删除了</p>
+<p>缺个<a href="https://packages.ubuntu.com/search?suite=default&amp;section=all&amp;arch=any&amp;keywords=python-ibus&amp;searchon=names" target="_blank" rel="noopener">python-ibus</a>的包<br>
+信息来源 <a href="https://forum.ubuntu.com.cn/viewtopic.php?t=468324" target="_blank" rel="noopener">Ubuntu中文论坛</a></p>
+<h3 id="解决方法"><a class="header-anchor" href="#解决方法"></a>解决方法</h3>
+<p>安装安装python-ibus</p>
+<h3 id="叛教-libpinyin赛高"><a class="header-anchor" href="#叛教-libpinyin赛高"></a>叛教 libpinyin赛高</h3>
+<p>不到五分钟 我被安利新的输入法了<br>
+我用了<a href="https://github.com/libpinyin/ibus-libpinyin" target="_blank" rel="noopener">ibus-libpinyin</a></p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://rabenda.tk">Rabenda</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/">https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Ubuntu/">Ubuntu</a>
+            <a href="/tags/OS/">OS</a>
+            <a href="/tags/pinyin/">pinyin</a>
+            <a href="/tags/Ubuntu-17-10/">Ubuntu 17.10</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/12/14/Install-FreeBSD/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">个人的FreeBSD的折腾笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/05/10/Docker-image-oracle-database-Install/">
+        <span class="next-text nav-default">Oracle数据库运行在Docker里的相关问题</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:rabenda.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://twitter.com/Rabenda_Issimo" class="iconfont icon-twitter" title="twitter"></a>
+        <a href="https://github.com/rabenda" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/Sakura_DNUI" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/generator" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Rabenda</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
