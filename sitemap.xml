@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rabenda.tk/2019/10/25/Ryzen-Machine/</loc>
+    
+    <lastmod>2020-03-17T03:55:51.840Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/2020/03/16/WSL-Linux/</loc>
+    
+    <lastmod>2020-03-17T03:38:08.590Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://rabenda.tk/2020/03/04/gentoo/</loc>
     
     <lastmod>2020-03-16T09:08:28.540Z</lastmod>
@@ -9,14 +23,7 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/2020/03/16/WSL-Linux/</loc>
-    
-    <lastmod>2020-03-16T09:07:06.680Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2020/03/02/Build-Openwrt/</loc>
+    <loc>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://rabenda.tk/2019/07/28/new-laptop/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2019/10/25/Ryzen-Machine/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/2020/03/03/NAS/</loc>
+    <loc>https://rabenda.tk/tags/index.html</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</loc>
+    <loc>https://rabenda.tk/2020/03/03/NAS/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
@@ -79,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/tags/index.html</loc>
+    <loc>https://rabenda.tk/2020/03/02/Build-Openwrt/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
