@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rabenda.tk/"/>
-  <updated>2020-03-17T03:38:08.590Z</updated>
+  <updated>2020-03-17T10:30:20.290Z</updated>
   <id>https://rabenda.tk/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://rabenda.tk/2020/03/16/WSL-Linux/"/>
     <id>https://rabenda.tk/2020/03/16/WSL-Linux/</id>
     <published>2020-03-16T07:33:15.000Z</published>
-    <updated>2020-03-17T03:38:08.590Z</updated>
+    <updated>2020-03-17T10:30:20.290Z</updated>
     
     <summary type="html">
     
@@ -41,9 +41,13 @@
     
       <category term="Ubuntu" scheme="https://rabenda.tk/tags/Ubuntu/"/>
     
-      <category term="linux" scheme="https://rabenda.tk/tags/linux/"/>
+      <category term="Hyper-V" scheme="https://rabenda.tk/tags/Hyper-V/"/>
     
       <category term="Gentoo" scheme="https://rabenda.tk/tags/Gentoo/"/>
+    
+      <category term="linux" scheme="https://rabenda.tk/tags/linux/"/>
+    
+      <category term="wsl" scheme="https://rabenda.tk/tags/wsl/"/>
     
   </entry>
   
@@ -69,13 +73,13 @@
     </summary>
     
     
-      <category term="Hyper-V" scheme="https://rabenda.tk/tags/Hyper-V/"/>
-    
       <category term="OS" scheme="https://rabenda.tk/tags/OS/"/>
     
-      <category term="Gentoo" scheme="https://rabenda.tk/tags/Gentoo/"/>
+      <category term="Hyper-V" scheme="https://rabenda.tk/tags/Hyper-V/"/>
     
       <category term="Linux" scheme="https://rabenda.tk/tags/Linux/"/>
+    
+      <category term="Gentoo" scheme="https://rabenda.tk/tags/Gentoo/"/>
     
   </entry>
   
