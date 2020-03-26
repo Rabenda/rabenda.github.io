@@ -199,7 +199,7 @@ J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一
 决定LEDE作为主路由 iKuai作为旁路由<br>
 加上一块480G的SATA3的SSD 一条16G的DDR3内存<br>
 实际安装下来遇到了如下的问题</p>
-<ul>
+<ol>
 <li>iKuai宣称的多播我无法正确使用</li>
 <li>iKuai的行为管理功能我实际上是不需要的</li>
 <li>iKuai的64位版本需要4GB内存</li>
@@ -207,16 +207,16 @@ J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一
 <li>iKuai/LEDE/ESXi需要公用一个网口做混杂模式 否则无法相通</li>
 <li>LEDE带的mwan3多播 我使用之后不会做负载分流</li>
 <li>LEDE拨号时候固件缺少ipv6相关组件 无法获取ipv6</li>
-</ul>
+</ol>
 <p>编号无法对应的问题我查看内部外部网卡MAC地址解决了<br>
 因为我是用iKuai无法完成使用iKuai的目的<br>
 所以我移除了iKuai虚拟机 只用LEDE<br>
 又遇到了如下问题</p>
-<ul>
+<ol>
 <li>LEDE的固件是随便找的 可能有安全问题</li>
 <li>LEDE固件不能使用Openwrt的源</li>
 <li>LEDE固件因为是随便找的 结果我想要用某些功能无法完成</li>
-</ul>
+</ol>
 <p>种种问题 所以我决定移除这套方案</p>
 <h4 id="openwrt-v2"><a class="header-anchor" href="#openwrt-v2"></a><strong>Openwrt</strong></h4>
 <p>移除上一套方案后 想直接裸机使用Openwrt<br>
@@ -225,19 +225,22 @@ J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一
 <p>Openwrt有一个squashfs格式和ext4格式<br>
 前者我在硬路由上使用 软路由我决定使用后者<br>
 使用官方固件我成功获取了ipv6地址</p>
-<p>官方安装之后有如下问题</p>
-<ul>
+<p>官方安装之后有如下问题：</p>
+<ol>
 <li>Openwrt默认安装完不会占用整个硬盘空间</li>
 <li>Openwrt提供v2ray的维护者并不打算支持v2rayN提供的订阅格式</li>
 <li>Openwrt提供的ss/v2ray的方案都没有lean提供的ssr-plus好用</li>
-</ul>
-<p>第一个问题解决方案就是用Ubuntu live启动之后<br>
+</ol>
+<p>解决办法如下：</p>
+<ol>
+<li>第一个问题解决方案就是用Ubuntu live启动之后<br>
 用fdisk删除存放分区 再重新建立分区<br>
 起始的offset一致 不要抹去分区签名<br>
-就可以完全扩容了</p>
-<p>第二个问题 无解 可以修改源码</p>
-<p>第三个问题 可以选择移植ssr-plus到Openwrt<br>
-也可以选择使用其他的链接方案</p>
+就可以完全扩容了</li>
+<li>第二个问题 无解 可以修改源码</li>
+<li>第三个问题 可以选择移植ssr-plus到Openwrt<br>
+也可以选择使用其他的链接方案</li>
+</ol>
 <p>总之解决方案都是需要自己移植/编译<br>
 所以我选择放弃</p>
 <h4 id="lean-s-lede-v2"><a class="header-anchor" href="#lean-s-lede-v2"></a><strong>lean’s LEDE</strong></h4>
@@ -258,7 +261,8 @@ J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一
 <p>我写了一个<a href="https://github.com/Rabenda/lean-lede-x64" target="_blank" rel="noopener">相关脚本合集</a></p>
 <p>然后我写了一个<a href="https://raw.githubusercontent.com/Rabenda/lean-lede-x64/master/Dockerfile" target="_blank" rel="noopener">Dockerfile</a><br>
 可以直接docker build生产LEDE-x64固件</p>
-<p>后来使用<a href="https://raw.githubusercontent.com/Rabenda/lean-lede-x64/master/.github/workflows/lean-lede-x64.yml" target="_blank" rel="noopener">github actions</a> 直接使用<a href="https://github.com/Rabenda/lean-lede-x64/actions" target="_blank" rel="noopener">CI</a>生成固件</p>
+<p>后来使用<a href="https://github.com/Rabenda/lean-lede-x64/actions" target="_blank" rel="noopener">Github Actions</a>生成固件</p>
+<p>生成的 <code>img</code> 固件可以直接更新系统</p>
 <h3 id="结语"><a class="header-anchor" href="#结语"></a><strong>结语</strong></h3>
 <p><font size="6">少折腾路由器 越折腾你断网越久.jpg</font></p>
 <p>以上</p>
