@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rabenda.tk/about/index.html</loc>
+    
+    <lastmod>2020-04-11T15:48:18.600Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://rabenda.tk/2019/10/25/Ryzen-Machine/</loc>
     
     <lastmod>2020-03-26T10:52:12.820Z</lastmod>
@@ -30,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://rabenda.tk/2019/10/29/surge-mac-for-v2ray/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
@@ -58,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/2018/12/14/Install-FreeBSD/</loc>
+    <loc>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
@@ -72,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://rabenda.tk/about/index.html</loc>
+    <loc>https://rabenda.tk/2018/12/14/Install-FreeBSD/</loc>
     
     <lastmod>2020-03-16T06:09:02.790Z</lastmod>
     
