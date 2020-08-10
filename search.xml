@@ -4,6 +4,40 @@
   
     
     <entry>
+      <title>ZFS替换与升级</title>
+      <link href="/2020/08/10/zfs-replace-update/"/>
+      <url>/2020/08/10/zfs-replace-update/</url>
+      
+        <content type="html"><![CDATA[<h2 id="替换原因"><a class="header-anchor" href="#替换原因"></a>替换原因</h2><p>我原来使用 <code>360G</code> 的鱼竿厂硬盘作为 <code>ZFS</code> 根目录, 现在觉得这个操作比较危险, 所以购入了两块 <code>PM981a</code> 做系统盘. 两块盘做了<code>mirror-0</code></p><h2 id="替换"><a class="header-anchor" href="#替换"></a>替换</h2><p>创建完分区(因为有 <code>EFI</code> 所以不能全盘 <code>ZFS</code>)后 执行以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zpool replace rpool sda2 /dev/nvme0n1p2</span><br></pre></td></tr></table></figure><p><code>gentoo-zh</code> 频道的人说需要 <code>detach</code> 旧盘</p><p>我个人操作完毕感觉旧硬盘自动被 <code>detach</code> 了</p><h2 id="添加镜像盘"><a class="header-anchor" href="#添加镜像盘"></a>添加镜像盘</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zpool attach rpool nvme0n1p2 nvme1n1p2</span><br></pre></td></tr></table></figure><p>这样就添加完 <code>mirror</code></p><h2 id="扩容"><a class="header-anchor" href="#扩容"></a>扩容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动扩容</span></span><br><span class="line">zpool <span class="built_in">set</span> autoexpand=on rpool</span><br><span class="line">zpool online -e rpool nvme0n1p2</span><br><span class="line">zpool online -e rpool nvme1n1p2</span><br></pre></td></tr></table></figure><h2 id="额外"><a class="header-anchor" href="#额外"></a>额外</h2><p>旧的 <code>EFI</code> 分区应该迁移到新硬盘</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p1 /mnt</span><br><span class="line">cp -rf /boot/* /mnt/</span><br><span class="line">umount /boot</span><br><span class="line">umount /mnt</span><br><span class="line">mount /dev/nvme0n1p1 /boot</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 计算 EFI 分区 UUID</span><br><span class="line">blkid</span><br><span class="line"># 修改 fstab</span><br><span class="line">nano /etc/fstab</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 重新安装 grub</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot</span><br><span class="line"># 重新创建 grub 引导项</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure><p>重启就能看见新系统了</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> zfs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android-Development</title>
+      <link href="/2020/05/15/Android-Development/"/>
+      <url>/2020/05/15/Android-Development/</url>
+      
+        <content type="html"><![CDATA[<h2 id="卷首"><a class="header-anchor" href="#卷首"></a>卷首</h2><p>想学习一技之长，所以选择了Android</p><h2 id="android-build-踩坑"><a class="header-anchor" href="#android-build-踩坑"></a>Android Build 踩坑</h2><h3 id="依赖"><a class="header-anchor" href="#依赖"></a>依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sys-libs/ncurses-compat</span><br><span class="line">dev-util/gperf</span><br><span class="line">media-libs/mesa vulkan</span><br><span class="line">media-libs/vulkan-loader X</span><br></pre></td></tr></table></figure><h3 id="none"><a class="header-anchor" href="#none"></a></h3><p>在Gentoo上首先遇到的问题是</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVAC does not match between Make and Soong</span><br></pre></td></tr></table></figure><p>解决办法是</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> JAVAC</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WSL2的Linux安装与使用</title>
       <link href="/2020/03/16/WSL-Linux/"/>
       <url>/2020/03/16/WSL-Linux/</url>

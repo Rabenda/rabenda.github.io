@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rabenda.tk/"/>
-  <updated>2020-03-17T10:30:20.290Z</updated>
+  <updated>2020-08-10T15:28:54.030Z</updated>
   <id>https://rabenda.tk/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ZFS替换与升级</title>
+    <link href="https://rabenda.tk/2020/08/10/zfs-replace-update/"/>
+    <id>https://rabenda.tk/2020/08/10/zfs-replace-update/</id>
+    <published>2020-08-10T15:05:17.000Z</published>
+    <updated>2020-08-10T15:28:54.030Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;替换原因&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#替换原因&quot;&gt;&lt;/a&gt;替换原因&lt;/h2&gt;
+&lt;p&gt;我原来使用 &lt;code&gt;360G&lt;/code&gt; 的鱼竿厂硬盘作为 &lt;code&gt;ZFS&lt;/code&gt; 根目录, 现在觉得这个操作比较危险,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://rabenda.tk/tags/linux/"/>
+    
+      <category term="zfs" scheme="https://rabenda.tk/tags/zfs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android-Development</title>
+    <link href="https://rabenda.tk/2020/05/15/Android-Development/"/>
+    <id>https://rabenda.tk/2020/05/15/Android-Development/</id>
+    <published>2020-05-14T17:24:17.000Z</published>
+    <updated>2020-05-15T05:01:34.840Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;卷首&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#卷首&quot;&gt;&lt;/a&gt;卷首&lt;/h2&gt;
+&lt;p&gt;想学习一技之长，所以选择了Android&lt;/p&gt;
+&lt;h2 id=&quot;android-build-踩坑&quot;&gt;&lt;a class=&quot;header-anchor&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>WSL2的Linux安装与使用</title>
