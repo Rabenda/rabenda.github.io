@@ -1,8 +1,678 @@
-{%- extends "_layout.swig" -%}
-{%- import '_macro/post.swig' as post_template -%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Openwrt 折腾笔记 | Hexo</title>
+  <meta name="description" content="参战硬件    硬件 价格 购买方式     phicomm-k1 – 学长送的   ASUS RT-ACRH17 429 京东   3855U 6口 工控路由 820 淘宝    phicomm-k1 这个设备是一位不愿意透露姓名的学长送的 他刷好了Pandavan固件 这个设备后来还被我用来做交换机使用 Pandavan 最初我获得设备的时候就是这个固件 常用固件功能都有 最初我需要这个设备的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt 折腾笔记">
+<meta property="og:url" content="https://rabenda.tk/2020/03/02/Build-Openwrt/index.html">
+<meta property="og:site_name" content="Rabenda的自言自语之地">
+<meta property="og:description" content="参战硬件    硬件 价格 购买方式     phicomm-k1 – 学长送的   ASUS RT-ACRH17 429 京东   3855U 6口 工控路由 820 淘宝    phicomm-k1 这个设备是一位不愿意透露姓名的学长送的 他刷好了Pandavan固件 这个设备后来还被我用来做交换机使用 Pandavan 最初我获得设备的时候就是这个固件 常用固件功能都有 最初我需要这个设备的">
+<meta property="og:locale">
+<meta property="og:image" content="https://rabenda.tk/images/rt-acrh17_show.png">
+<meta property="og:image" content="https://rabenda.tk/images/lede_show.png">
+<meta property="article:published_time" content="2020-03-02T15:52:06.000Z">
+<meta property="article:modified_time" content="2020-03-26T10:46:49.230Z">
+<meta property="article:author" content="Rabenda">
+<meta property="article:tag" content="Openwrt">
+<meta property="article:tag" content="lean&#39;s lede">
+<meta property="article:tag" content="x86">
+<meta property="article:tag" content="ACRH17">
+<meta property="article:tag" content="phicomm-k1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rabenda.tk/images/rt-acrh17_show.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://rabenda.tk/2020/03/02/Build-Openwrt/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rabenda的自言自语之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{%- block title -%} {{ page.title }} - {{ config.title }} {%- endblock -%}
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
 
-{%- block content -%}
-  {{ post_template.render(page) }}
-{%- endblock -%}
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/rabenda" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Revy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/10/zfs-replace-update/" class="title">ZFS替换与升级</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-10T15:05:17.000Z" itemprop="datePublished">2020-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/Android-Development/" class="title">Android-Development</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-14T17:24:17.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/16/WSL-Linux/" class="title">WSL2的Linux安装与使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-16T07:33:15.000Z" itemprop="datePublished">2020-03-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/04/gentoo/" class="title">Gentoo 安装笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T19:34:06.000Z" itemprop="datePublished">2020-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/03/NAS/" class="title">NAS 折腾笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T00:23:48.000Z" itemprop="datePublished">2020-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ACRH17/" style="font-size: 13px;">ACRH17</a> <a href="/tags/DSM/" style="font-size: 13px;">DSM</a> <a href="/tags/FreeBSD/" style="font-size: 14px;">FreeBSD</a> <a href="/tags/FreeNAS/" style="font-size: 13px;">FreeNAS</a> <a href="/tags/Gentoo/" style="font-size: 13.5px;">Gentoo</a> <a href="/tags/Hyper-V/" style="font-size: 14px;">Hyper-V</a> <a href="/tags/J1900/" style="font-size: 13px;">J1900</a> <a href="/tags/Linux/" style="font-size: 13.5px;">Linux</a> <a href="/tags/NAS/" style="font-size: 13px;">NAS</a> <a href="/tags/OS/" style="font-size: 14px;">OS</a> <a href="/tags/Openwrt/" style="font-size: 13px;">Openwrt</a> <a href="/tags/RD500/" style="font-size: 13px;">RD500</a> <a href="/tags/Ryzen/" style="font-size: 13px;">Ryzen</a> <a href="/tags/SN550/" style="font-size: 13px;">SN550</a> <a href="/tags/ThinkPad/" style="font-size: 13.5px;">ThinkPad</a> <a href="/tags/Ubuntu/" style="font-size: 13.5px;">Ubuntu</a> <a href="/tags/Ubuntu-17-10/" style="font-size: 13px;">Ubuntu 17.10</a> <a href="/tags/Windows-10/" style="font-size: 13px;">Windows 10</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/laptop/" style="font-size: 13.5px;">laptop</a> <a href="/tags/lean-s-lede/" style="font-size: 13px;">lean's lede</a> <a href="/tags/linux/" style="font-size: 13.5px;">linux</a> <a href="/tags/oracle/" style="font-size: 13px;">oracle</a> <a href="/tags/phicomm-k1/" style="font-size: 13px;">phicomm-k1</a> <a href="/tags/pinyin/" style="font-size: 13px;">pinyin</a> <a href="/tags/surge/" style="font-size: 13px;">surge</a> <a href="/tags/v2ray/" style="font-size: 13px;">v2ray</a> <a href="/tags/wsl/" style="font-size: 13px;">wsl</a> <a href="/tags/x1c-6th/" style="font-size: 13.5px;">x1c_6th</a> <a href="/tags/x86/" style="font-size: 13px;">x86</a> <a href="/tags/zfs/" style="font-size: 13px;">zfs</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Build-Openwrt" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Openwrt 折腾笔记
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/03/02/Build-Openwrt/" class="article-date">
+	  <time datetime="2020-03-02T15:52:06.000Z" itemprop="datePublished">2020-03-02</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/ACRH17/" rel="tag">ACRH17</a>, <a class="article-tag-link-link" href="/tags/Openwrt/" rel="tag">Openwrt</a>, <a class="article-tag-link-link" href="/tags/lean-s-lede/" rel="tag">lean's lede</a>, <a class="article-tag-link-link" href="/tags/phicomm-k1/" rel="tag">phicomm-k1</a>, <a class="article-tag-link-link" href="/tags/x86/" rel="tag">x86</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/02/Build-Openwrt/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.7k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="参战硬件"><a class="header-anchor" href="#参战硬件"></a><strong>参战硬件</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">硬件</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">phicomm-k1</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">学长送的</td>
+</tr>
+<tr>
+<td style="text-align:center">ASUS RT-ACRH17</td>
+<td style="text-align:center">429</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/5186619.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">3855U 6口 工控路由</td>
+<td style="text-align:center">820</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://detail.tmall.com/item.htm?id=576827354736">淘宝</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="phicomm-k1"><a class="header-anchor" href="#phicomm-k1"></a><strong>phicomm-k1</strong></h3>
+<p>这个设备是一位不愿意透露姓名的学长送的<br>
+他刷好了Pandavan固件<br>
+这个设备后来还被我用来做交换机使用</p>
+<h4 id="pandavan"><a class="header-anchor" href="#pandavan"></a><strong>Pandavan</strong></h4>
+<p>最初我获得设备的时候就是这个固件 常用固件功能都有<br>
+最初我需要这个设备的原因是要在路由器上跑Shadowsocks<br>
+因为Android设备刷完<a target="_blank" rel="noopener" href="https://opengapps.org/">OpenGApps</a>需要连接Google登陆账号激活<br>
+路由器上跑代理是解决这个问题的办法<br>
+后来因为这个设备接口都是百兆所以我买了ACRH17替换掉</p>
+<h4 id="openwrt"><a class="header-anchor" href="#openwrt"></a><strong>Openwrt</strong></h4>
+<p>这固件是后来我想折腾Openwrt固件时候才开始刷进去的<br>
+我写了一个编译Dockerfile 把.config放入就可以直接docker build生产固件<br>
+后来我还写了自动上传到github<br>
+编译<a target="_blank" rel="noopener" href="https://github.com/Rabenda/openwrt-phicomm-k1">Docker地址</a><br>
+后来发现travis集成不能编译超过40分钟 docker hub也不能超过一定时间<br>
+在本地编了几次之后 编译机被拿走了 就没有在折腾了</p>
+<h4 id="pandorabox"><a class="header-anchor" href="#pandorabox"></a><strong>PandoraBox</strong></h4>
+<p>之后为了做学校项目 一个基于mqtt的智能家居系统<br>
+刷成了PandoraBox 就当作普通路由使用了</p>
+<h3 id="rt-acrh17"><a class="header-anchor" href="#rt-acrh17"></a><strong>RT-ACRH17</strong></h3>
+<p>这个机器宣称有<code>160MHz</code> 所以我就寻找了相关固件<br>
+这个机器配了一个USB3.0的接口 官方固件只支持2.0 所以需要第三方固件</p>
+<h4 id="merlin"><a class="header-anchor" href="#merlin"></a><strong>Merlin</strong></h4>
+<p>第一次选择的是<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-708359-1-1.html">Merlin固件</a><br>
+正常来说是没有<a target="_blank" rel="noopener" href="https://www.asuswrt-merlin.net">Merlin</a><br>
+因为ACRH17使用的是高通的芯片 没有Merlin才是正常情况<br>
+Lean的固件有<code>160MHz</code> 但是实际上跑不上去</p>
+<h4 id="lean-s-lede"><a class="header-anchor" href="#lean-s-lede"></a><strong>Lean’s LEDE</strong></h4>
+<p>因为没找到<code>160MHz</code>的固件 我就使用了Merlin固件作者的LEDE来扩展功能<br>
+<a target="_blank" rel="noopener" href="https://github.com/coolsnowwolf/lede">Lean’s LEDE</a><br>
+不选择<a target="_blank" rel="noopener" href="https://openwrt.org/">Openwrt</a>官方的固件的原因是没有适配这个机型<br>
+LEDE扩展功能真的好多 但是当时懒了 直接用别人编好的固件</p>
+<h4 id="pandorabox-v2"><a class="header-anchor" href="#pandorabox-v2"></a><strong>PandoraBox</strong></h4>
+<p>第三次选择的是<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-318998-1-1.html">PandoraBox固件</a><br>
+原因是我还是想要<code>160MHz</code> 毕竟这是学长忽悠我买这个机器的原因之一<br>
+这个固件我刷了两次之后 也刷了pb-boot和op-boot 刷了几次之后把ART分区数据弄丢了<br>
+结果这机器就显示自己是RT-AC82U 实际上华硕根本没有这个产品<br>
+ART分区丢失的话 信号就有问题了 所以在网上找了其他人的原厂固件和ART分区刷进去</p>
+<h4 id="offical"><a class="header-anchor" href="#offical"></a><strong>Offical</strong></h4>
+<p>后来完全刷回了官方固件 再后来就有了3855U软路由<br>
+之后这个设备就用做了AP 放在客厅里发挥AP的作用</p>
+<p><img src="/images/rt-acrh17_show.png" alt="rt-acrh17_show"></p>
+<h3 id="3855u"><a class="header-anchor" href="#3855u"></a><strong>3855U</strong></h3>
+<p>这个硬件是在我购买了小米电视4A后产生的需求<br>
+原本的ACRH17刷完lean’s LEDE的固件时候<br>
+对于网关SSR有了解码速度的需求<br>
+所以买了x86的软路由</p>
+<h4 id="硬件选择"><a class="header-anchor" href="#硬件选择"></a><strong>硬件选择</strong></h4>
+<p>店家有D525/J1900/3855U/3865U选择<br>
+不选D525的原因是这玩意超级老 没意思<br>
+J1900淘汰的原因是我已经有一个J1900作为NAS使用了 不想再来一个<br>
+3865U排除的原因是使用DDR4内存 没钱买内存<br>
+使用3855U 我有空余DDR3内存和sata硬盘使用</p>
+<h4 id="esxi-ikuai-lean-s-lede"><a class="header-anchor" href="#esxi-ikuai-lean-s-lede"></a><strong>ESXi+iKuai+lean’s LEDE</strong></h4>
+<p>最初这个方案是我看了很多软路由介绍的视频<br>
+决定参考他们的方案<br>
+决定LEDE作为主路由 iKuai作为旁路由<br>
+加上一块480G的SATA3的SSD 一条16G的DDR3内存<br>
+实际安装下来遇到了如下的问题</p>
+<ol>
+<li>iKuai宣称的多播我无法正确使用</li>
+<li>iKuai的行为管理功能我实际上是不需要的</li>
+<li>iKuai的64位版本需要4GB内存</li>
+<li>ESXi直通网卡的时候 LEDE内部的网卡和外部网卡编号无法对应</li>
+<li>iKuai/LEDE/ESXi需要公用一个网口做混杂模式 否则无法相通</li>
+<li>LEDE带的mwan3多播 我使用之后不会做负载分流</li>
+<li>LEDE拨号时候固件缺少ipv6相关组件 无法获取ipv6</li>
+</ol>
+<p>编号无法对应的问题我查看内部外部网卡MAC地址解决了<br>
+因为我是用iKuai无法完成使用iKuai的目的<br>
+所以我移除了iKuai虚拟机 只用LEDE<br>
+又遇到了如下问题</p>
+<ol>
+<li>LEDE的固件是随便找的 可能有安全问题</li>
+<li>LEDE固件不能使用Openwrt的源</li>
+<li>LEDE固件因为是随便找的 结果我想要用某些功能无法完成</li>
+</ol>
+<p>种种问题 所以我决定移除这套方案</p>
+<h4 id="openwrt-v2"><a class="header-anchor" href="#openwrt-v2"></a><strong>Openwrt</strong></h4>
+<p>移除上一套方案后 想直接裸机使用Openwrt<br>
+所以就更换了硬盘 使用msata接口的三星PM810 32G<br>
+更换了一条海力士的4G内存条 这样才能物尽其用</p>
+<p>Openwrt有一个squashfs格式和ext4格式<br>
+前者我在硬路由上使用 软路由我决定使用后者<br>
+使用官方固件我成功获取了ipv6地址</p>
+<p>官方安装之后有如下问题：</p>
+<ol>
+<li>Openwrt默认安装完不会占用整个硬盘空间</li>
+<li>Openwrt提供v2ray的维护者并不打算支持v2rayN提供的订阅格式</li>
+<li>Openwrt提供的ss/v2ray的方案都没有lean提供的ssr-plus好用</li>
+</ol>
+<p>解决办法如下：</p>
+<ol>
+<li>第一个问题解决方案就是用Ubuntu live启动之后<br>
+用fdisk删除存放分区 再重新建立分区<br>
+起始的offset一致 不要抹去分区签名<br>
+就可以完全扩容了</li>
+<li>第二个问题 无解 可以修改源码</li>
+<li>第三个问题 可以选择移植ssr-plus到Openwrt<br>
+也可以选择使用其他的链接方案</li>
+</ol>
+<p>总之解决方案都是需要自己移植/编译<br>
+所以我选择放弃</p>
+<h4 id="lean-s-lede-v2"><a class="header-anchor" href="#lean-s-lede-v2"></a><strong>lean’s LEDE</strong></h4>
+<p>反正都需要编译了 索性就选择lean’s LEDE</p>
+<p>编译时候遇见的问题如下</p>
+<ul>
+<li>产生uefi启动的img并不能良好启动</li>
+<li>想直接扩容超过4G可能会超过U盘上fat32单个文件大小限制</li>
+<li>默认参数不支持ipv6 需要手工配置开启</li>
+</ul>
+<p>最终我选择了使用传统引导和分区为2Gb的方案<br>
+然后再利用扩容的方法使其完整使用硬盘</p>
+<p>本来我在固件中选择编译了Docker<br>
+结果我发现我这么多设备 我要用一个路由器去跑docker？<br>
+再想到我学长的话 - <strong>『路由器核心设备，勿动』</strong><br>
+遂放弃并且移除相关功能</p>
+<p><img src="/images/lede_show.png" alt="lede_show"></p>
+<p>我写了一个<a target="_blank" rel="noopener" href="https://github.com/Rabenda/lean-lede-x64">相关脚本合集</a></p>
+<p>然后我写了一个<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Rabenda/lean-lede-x64/master/Dockerfile">Dockerfile</a><br>
+可以直接docker build生产LEDE-x64固件</p>
+<p>后来使用<a target="_blank" rel="noopener" href="https://github.com/Rabenda/lean-lede-x64/actions">Github Actions</a>生成固件</p>
+<p>生成的 <code>img</code> 固件可以直接更新系统</p>
+<h3 id="结语"><a class="header-anchor" href="#结语"></a><strong>结语</strong></h3>
+<p><font size=6>少折腾路由器 越折腾你断网越久.jpg</font></p>
+<p>以上</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://rabenda.tk/2020/03/02/Build-Openwrt/" title="Openwrt 折腾笔记" target="_blank" rel="external">https://rabenda.tk/2020/03/02/Build-Openwrt/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/rabenda" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/rabenda" target="_blank"><span class="text-dark">Revy</span><small class="ml-1x">Developer</small></a></h3>
+        <div>程序员, 喜欢maimai</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/03/03/NAS/" title="NAS 折腾笔记"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/29/surge-mac-for-v2ray/" title="Surge mac for v2ray"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Rabenda
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-159539835-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>

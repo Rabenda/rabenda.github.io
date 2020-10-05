@@ -1,8 +1,782 @@
-{%- extends "_layout.swig" -%}
-{%- import '_macro/post.swig' as post_template -%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Ryzen-Machine with Hyper-V | Hexo</title>
+  <meta name="description" content="开宗明义 台式机真香 现行配置    分类 型号 价格 购买链接     CPU AMD 锐龙5 2600 处理器 (r5) 6核12线程 板U套装 京东   主板 微星(MSI)B450M MORTAR MAX迫击炮 1479 京东   电源 长城(GreatWall)额定450W G4全模组台式机电源 309 京东   GPU GIGABYTE GeForce GTX 1660 GAMING">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ryzen-Machine with Hyper-V">
+<meta property="og:url" content="https://rabenda.tk/2019/10/25/Ryzen-Machine/index.html">
+<meta property="og:site_name" content="Rabenda的自言自语之地">
+<meta property="og:description" content="开宗明义 台式机真香 现行配置    分类 型号 价格 购买链接     CPU AMD 锐龙5 2600 处理器 (r5) 6核12线程 板U套装 京东   主板 微星(MSI)B450M MORTAR MAX迫击炮 1479 京东   电源 长城(GreatWall)额定450W G4全模组台式机电源 309 京东   GPU GIGABYTE GeForce GTX 1660 GAMING">
+<meta property="og:locale">
+<meta property="og:image" content="https://rabenda.tk/images/Hyper-V_Show.png">
+<meta property="article:published_time" content="2019-10-25T00:41:48.000Z">
+<meta property="article:modified_time" content="2020-03-26T10:52:12.820Z">
+<meta property="article:author" content="Rabenda">
+<meta property="article:tag" content="Ryzen">
+<meta property="article:tag" content="RD500">
+<meta property="article:tag" content="SN550">
+<meta property="article:tag" content="Windows 10">
+<meta property="article:tag" content="Hyper-V">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rabenda.tk/images/Hyper-V_Show.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://rabenda.tk/2019/10/25/Ryzen-Machine/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rabenda的自言自语之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{%- block title -%} {{ page.title }} - {{ config.title }} {%- endblock -%}
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
 
-{%- block content -%}
-  {{ post_template.render(page) }}
-{%- endblock -%}
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/rabenda" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Revy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/10/zfs-replace-update/" class="title">ZFS替换与升级</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-10T15:05:17.000Z" itemprop="datePublished">2020-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/Android-Development/" class="title">Android-Development</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-14T17:24:17.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/16/WSL-Linux/" class="title">WSL2的Linux安装与使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-16T07:33:15.000Z" itemprop="datePublished">2020-03-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/04/gentoo/" class="title">Gentoo 安装笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T19:34:06.000Z" itemprop="datePublished">2020-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/03/NAS/" class="title">NAS 折腾笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T00:23:48.000Z" itemprop="datePublished">2020-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ACRH17/" style="font-size: 13px;">ACRH17</a> <a href="/tags/DSM/" style="font-size: 13px;">DSM</a> <a href="/tags/FreeBSD/" style="font-size: 14px;">FreeBSD</a> <a href="/tags/FreeNAS/" style="font-size: 13px;">FreeNAS</a> <a href="/tags/Gentoo/" style="font-size: 13.5px;">Gentoo</a> <a href="/tags/Hyper-V/" style="font-size: 14px;">Hyper-V</a> <a href="/tags/J1900/" style="font-size: 13px;">J1900</a> <a href="/tags/Linux/" style="font-size: 13.5px;">Linux</a> <a href="/tags/NAS/" style="font-size: 13px;">NAS</a> <a href="/tags/OS/" style="font-size: 14px;">OS</a> <a href="/tags/Openwrt/" style="font-size: 13px;">Openwrt</a> <a href="/tags/RD500/" style="font-size: 13px;">RD500</a> <a href="/tags/Ryzen/" style="font-size: 13px;">Ryzen</a> <a href="/tags/SN550/" style="font-size: 13px;">SN550</a> <a href="/tags/ThinkPad/" style="font-size: 13.5px;">ThinkPad</a> <a href="/tags/Ubuntu/" style="font-size: 13.5px;">Ubuntu</a> <a href="/tags/Ubuntu-17-10/" style="font-size: 13px;">Ubuntu 17.10</a> <a href="/tags/Windows-10/" style="font-size: 13px;">Windows 10</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/laptop/" style="font-size: 13.5px;">laptop</a> <a href="/tags/lean-s-lede/" style="font-size: 13px;">lean's lede</a> <a href="/tags/linux/" style="font-size: 13.5px;">linux</a> <a href="/tags/oracle/" style="font-size: 13px;">oracle</a> <a href="/tags/phicomm-k1/" style="font-size: 13px;">phicomm-k1</a> <a href="/tags/pinyin/" style="font-size: 13px;">pinyin</a> <a href="/tags/surge/" style="font-size: 13px;">surge</a> <a href="/tags/v2ray/" style="font-size: 13px;">v2ray</a> <a href="/tags/wsl/" style="font-size: 13px;">wsl</a> <a href="/tags/x1c-6th/" style="font-size: 13.5px;">x1c_6th</a> <a href="/tags/x86/" style="font-size: 13px;">x86</a> <a href="/tags/zfs/" style="font-size: 13px;">zfs</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Ryzen-Machine" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ryzen-Machine with Hyper-V
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/25/Ryzen-Machine/" class="article-date">
+	  <time datetime="2019-10-25T00:41:48.000Z" itemprop="datePublished">2019-10-25</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Hyper-V/" rel="tag">Hyper-V</a>, <a class="article-tag-link-link" href="/tags/RD500/" rel="tag">RD500</a>, <a class="article-tag-link-link" href="/tags/Ryzen/" rel="tag">Ryzen</a>, <a class="article-tag-link-link" href="/tags/SN550/" rel="tag">SN550</a>, <a class="article-tag-link-link" href="/tags/Windows-10/" rel="tag">Windows 10</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/25/Ryzen-Machine/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 828(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="开宗明义"><a class="header-anchor" href="#开宗明义"></a>开宗明义</h3>
+<p><font size=8>台式机真香</font></p>
+<h3 id="现行配置"><a class="header-anchor" href="#现行配置"></a>现行配置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">型号</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">AMD 锐龙5 2600 处理器 (r5) 6核12线程</td>
+<td style="text-align:center">板U套装</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/7115861.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">主板</td>
+<td style="text-align:center">微星(MSI)B450M MORTAR MAX迫击炮</td>
+<td style="text-align:center">1479</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100007256670.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">电源</td>
+<td style="text-align:center">长城(GreatWall)额定450W G4全模组台式机电源</td>
+<td style="text-align:center">309</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4183438.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GPU</td>
+<td style="text-align:center">GIGABYTE GeForce GTX 1660 GAMING OC 6G</td>
+<td style="text-align:center">1599</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100002520273.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">机箱</td>
+<td style="text-align:center">乔思伯(JONSBO)U4 白色 ATX机箱</td>
+<td style="text-align:center">242</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4209217.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">网卡</td>
+<td style="text-align:center">Intel I350-T4V2 /X1PCI-E四口千兆服务器网卡</td>
+<td style="text-align:center">239</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?id=564875543880">淘宝</a></td>
+</tr>
+<tr>
+<td style="text-align:center">内存</td>
+<td style="text-align:center">威刚(ADATA)DDR4 2666 16GB台式机内存 万紫千红</td>
+<td style="text-align:center">469/399</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100000626454.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">十铨 DDR4 2400 8Gx2</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">以物换物</td>
+</tr>
+<tr>
+<td style="text-align:center">硬盘</td>
+<td style="text-align:center">Western Digital Blue SN550</td>
+<td style="text-align:center">899</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100005926991.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">TOSHIBA 500G RD500</td>
+<td style="text-align:center">699</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100009602290.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">光威(Gloway)SSD固态硬盘</td>
+<td style="text-align:center">559/369/269</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/3639922.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">希捷酷狼IronWolf系列2TB 64MB 5900RPM</td>
+<td style="text-align:center">569</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4058196.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:center">合计</td>
+<td style="text-align:center">8100</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<h3 id="预算配置"><a class="header-anchor" href="#预算配置"></a>预算配置</h3>
+<h4 id="预算"><a class="header-anchor" href="#预算"></a>预算</h4>
+<p>人民币 2600元</p>
+<h4 id="配置"><a class="header-anchor" href="#配置"></a>配置</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">型号</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AMD 锐龙5 2600 处理器 (r5) 6核12线程</td>
+<td style="text-align:center">板U套装</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/7115861.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">微星(MSI)B450M MORTAR MAX迫击炮</td>
+<td style="text-align:center">1479</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100007256670.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">长城(GreatWall)额定450W G4全模组台式机电源</td>
+<td style="text-align:center">309</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4183438.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">威刚(ADATA)DDR4 2666 16GB台式机内存 万紫千红</td>
+<td style="text-align:center">469</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100000626454.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">乔思伯(JONSBO)V4 银色 MINI-MATX机箱 (已拆)</td>
+<td style="text-align:center">229</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/922044.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GT 710 (已拆)</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">线下</td>
+</tr>
+</tbody>
+</table>
+<h4 id="系统"><a class="header-anchor" href="#系统"></a>系统</h4>
+<p><a target="_blank" rel="noopener" href="https://www.gentoo.org">Gentoo</a></p>
+<p>中途还发现了nvme的<a target="_blank" rel="noopener" href="https://bugzilla.redhat.com/show_bug.cgi?id=1699571">bug</a>(我哭了 退货两块硬盘才发现的)</p>
+<p>发现了这个bug后改用了Windows 10</p>
+<hr>
+<h3 id="2020-03-02-附记"><a class="header-anchor" href="#2020-03-02-附记"></a>2020/03/02 附记</h3>
+<p>开启了主板上面的<code>Game Boost</code> 超了450MHz</p>
+<p>把以前笔记本上的<code>Windows 10</code>挪到了台式机上</p>
+<p>加装了以下硬件</p>
+<h4 id="追加配置"><a class="header-anchor" href="#追加配置"></a>追加配置</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">型号</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Western Digital Blue SN550</td>
+<td style="text-align:center">899</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100005926991.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">TOSHIBA 500G RD500</td>
+<td style="text-align:center">699</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100009602290.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">GIGABYTE GeForce GTX 1660 GAMING OC 6G</td>
+<td style="text-align:center">1599</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100002520273.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">威刚(ADATA)DDR4 2666 16GB台式机内存 万紫千红</td>
+<td style="text-align:center">399</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/100000626454.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">乔思伯(JONSBO)U4 白色 ATX机箱</td>
+<td style="text-align:center">242</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4209217.html">京东</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="hyper-v"><a class="header-anchor" href="#hyper-v"></a>Hyper-V</h4>
+<p>开启了Hyper-V 上面跑着一堆虚拟机 一个字 <code>爽</code></p>
+<p><img src="/images/Hyper-V_Show.png" alt="Hyper-V_Show"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">机器</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Gentoo</td>
+<td style="text-align:center">日常使用的Linux</td>
+</tr>
+<tr>
+<td style="text-align:center">Ubuntu_Build</td>
+<td style="text-align:center">专门用来编译 包括路由器OpenWrt和一些奇怪的东西</td>
+</tr>
+<tr>
+<td style="text-align:center">Win10LTSC</td>
+<td style="text-align:center">专门用于挂BT 直通进去一块酷鱼2T</td>
+</tr>
+<tr>
+<td style="text-align:center">VoidLinux</td>
+<td style="text-align:center">正在玩的系统 想体验一把MUSL的与众不同</td>
+</tr>
+<tr>
+<td style="text-align:center">DockerDesktopVM</td>
+<td style="text-align:center">Docker的执行体</td>
+</tr>
+<tr>
+<td style="text-align:center">LFS</td>
+<td style="text-align:center">为了看一遍LFS book的东西 现在碍于没有initramfs 无法正确挂载硬盘</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2020-03-17-附记"><a class="header-anchor" href="#2020-03-17-附记"></a>2020/03/17 附记</h3>
+<p>我想要桥接Hyper-V网卡 在网络设置里设置桥接已经让我的 <code>Windows 10</code> <code>蓝屏/绿屏</code>很多次了 总是<code>bridge.sys</code> <code>ndis.sys</code>引起的</p>
+<p>所以我选择买一个4口 <code>pcie x1</code> 网卡 型号 <code>I350-T4V2</code></p>
+<p>我还上了一块 <code>酷鱼 2T</code> 用来挂BT</p>
+<p>还有三块 <code>光威悍将</code> <code>480G/480G/360G</code> 固态用来直通进去装虚拟机系统</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">型号</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">购买链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Intel I350-T4V2 /X1PCI-E四口千兆服务器网卡</td>
+<td style="text-align:center">239</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?id=564875543880">淘宝</a></td>
+</tr>
+<tr>
+<td style="text-align:center">光威(Gloway)SSD固态硬盘</td>
+<td style="text-align:center">559/369/269</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/3639922.html">京东</a></td>
+</tr>
+<tr>
+<td style="text-align:center">希捷酷狼IronWolf系列2TB 64MB 5900RPM</td>
+<td style="text-align:center">569</td>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://item.jd.com/4058196.html">京东</a></td>
+</tr>
+</tbody>
+</table>
+<p>最初我以为<code>Hyper-V</code>的网卡是<code>PCIE</code>直通 结果是通给<code>Hyper-V</code> 创建的Switch</p>
+<p>所以四口其实没什么用处 不过我还是单独把几个口分给常用的虚拟机</p>
+<p>防止网络压力过大</p>
+<h3 id="2020-03-26-附记"><a class="header-anchor" href="#2020-03-26-附记"></a>2020/03/26 附记</h3>
+<p>拿了一个单条DDR3 16G 1600笔记本内存 换了 两条十铨DDR4 8G 2400内存条</p>
+<h3 id="叛教宣言"><a class="header-anchor" href="#叛教宣言"></a>叛教宣言</h3>
+<p>总之 我叛教了(Windows 真香.jpg)</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://rabenda.tk/2019/10/25/Ryzen-Machine/" title="Ryzen-Machine with Hyper-V" target="_blank" rel="external">https://rabenda.tk/2019/10/25/Ryzen-Machine/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/rabenda" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/rabenda" target="_blank"><span class="text-dark">Revy</span><small class="ml-1x">Developer</small></a></h3>
+        <div>程序员, 喜欢maimai</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/29/surge-mac-for-v2ray/" title="Surge mac for v2ray"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/07/28/new-laptop/" title="ThinkPad x1 carbon 6th"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Rabenda
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-159539835-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>

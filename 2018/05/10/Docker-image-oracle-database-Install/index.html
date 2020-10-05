@@ -1,8 +1,597 @@
-{%- extends "_layout.swig" -%}
-{%- import '_macro/post.swig' as post_template -%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Oracle数据库运行在Docker里的相关问题 | Hexo</title>
+  <meta name="description" content="MaksymBilenko&#x2F;docker-oracle-12c 以上是oracle-database 12c的Docker镜像 使用说明在项目中 Docker 镜像适应于 Linux &#x2F; macOS &#x2F; Windows Docker Oracle Database Image 下载 1docker pull sath89&#x2F;oracle-12c 简略使用方法: 以下内容需要在宿主机(host)输入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle数据库运行在Docker里的相关问题">
+<meta property="og:url" content="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/index.html">
+<meta property="og:site_name" content="Rabenda的自言自语之地">
+<meta property="og:description" content="MaksymBilenko&#x2F;docker-oracle-12c 以上是oracle-database 12c的Docker镜像 使用说明在项目中 Docker 镜像适应于 Linux &#x2F; macOS &#x2F; Windows Docker Oracle Database Image 下载 1docker pull sath89&#x2F;oracle-12c 简略使用方法: 以下内容需要在宿主机(host)输入">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-05-10T08:27:12.000Z">
+<meta property="article:modified_time" content="2020-03-16T06:09:02.790Z">
+<meta property="article:author" content="Rabenda">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rabenda的自言自语之地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{%- block title -%} {{ page.title }} - {{ config.title }} {%- endblock -%}
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
 
-{%- block content -%}
-  {{ post_template.render(page) }}
-{%- endblock -%}
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/rabenda" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Revy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/10/zfs-replace-update/" class="title">ZFS替换与升级</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-10T15:05:17.000Z" itemprop="datePublished">2020-08-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/Android-Development/" class="title">Android-Development</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-14T17:24:17.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/16/WSL-Linux/" class="title">WSL2的Linux安装与使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-16T07:33:15.000Z" itemprop="datePublished">2020-03-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/04/gentoo/" class="title">Gentoo 安装笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T19:34:06.000Z" itemprop="datePublished">2020-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/03/NAS/" class="title">NAS 折腾笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-03T00:23:48.000Z" itemprop="datePublished">2020-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ACRH17/" style="font-size: 13px;">ACRH17</a> <a href="/tags/DSM/" style="font-size: 13px;">DSM</a> <a href="/tags/FreeBSD/" style="font-size: 14px;">FreeBSD</a> <a href="/tags/FreeNAS/" style="font-size: 13px;">FreeNAS</a> <a href="/tags/Gentoo/" style="font-size: 13.5px;">Gentoo</a> <a href="/tags/Hyper-V/" style="font-size: 14px;">Hyper-V</a> <a href="/tags/J1900/" style="font-size: 13px;">J1900</a> <a href="/tags/Linux/" style="font-size: 13.5px;">Linux</a> <a href="/tags/NAS/" style="font-size: 13px;">NAS</a> <a href="/tags/OS/" style="font-size: 14px;">OS</a> <a href="/tags/Openwrt/" style="font-size: 13px;">Openwrt</a> <a href="/tags/RD500/" style="font-size: 13px;">RD500</a> <a href="/tags/Ryzen/" style="font-size: 13px;">Ryzen</a> <a href="/tags/SN550/" style="font-size: 13px;">SN550</a> <a href="/tags/ThinkPad/" style="font-size: 13.5px;">ThinkPad</a> <a href="/tags/Ubuntu/" style="font-size: 13.5px;">Ubuntu</a> <a href="/tags/Ubuntu-17-10/" style="font-size: 13px;">Ubuntu 17.10</a> <a href="/tags/Windows-10/" style="font-size: 13px;">Windows 10</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/laptop/" style="font-size: 13.5px;">laptop</a> <a href="/tags/lean-s-lede/" style="font-size: 13px;">lean's lede</a> <a href="/tags/linux/" style="font-size: 13.5px;">linux</a> <a href="/tags/oracle/" style="font-size: 13px;">oracle</a> <a href="/tags/phicomm-k1/" style="font-size: 13px;">phicomm-k1</a> <a href="/tags/pinyin/" style="font-size: 13px;">pinyin</a> <a href="/tags/surge/" style="font-size: 13px;">surge</a> <a href="/tags/v2ray/" style="font-size: 13px;">v2ray</a> <a href="/tags/wsl/" style="font-size: 13px;">wsl</a> <a href="/tags/x1c-6th/" style="font-size: 13.5px;">x1c_6th</a> <a href="/tags/x86/" style="font-size: 13px;">x86</a> <a href="/tags/zfs/" style="font-size: 13px;">zfs</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Docker-image-oracle-database-Install" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle数据库运行在Docker里的相关问题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/05/10/Docker-image-oracle-database-Install/" class="article-date">
+	  <time datetime="2018-05-10T08:27:12.000Z" itemprop="datePublished">2018-05-10</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/docker/" rel="tag">docker</a>, <a class="article-tag-link-link" href="/tags/oracle/" rel="tag">oracle</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/05/10/Docker-image-oracle-database-Install/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 658(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/MaksymBilenko/docker-oracle-12c">MaksymBilenko/docker-oracle-12c</a><br>
+以上是oracle-database 12c的Docker镜像 使用说明在项目中</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> 镜像适应于 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linux">Linux</a> / <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MacOS">macOS</a> / <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Windows</a></p>
+<h3 id="docker-oracle-database-image-下载"><a class="header-anchor" href="#docker-oracle-database-image-下载"></a>Docker Oracle Database Image 下载</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sath89/oracle-12c</span><br></pre></td></tr></table></figure>
+<h3 id="简略使用方法"><a class="header-anchor" href="#简略使用方法"></a>简略使用方法:</h3>
+<p>以下内容需要在宿主机(host)输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建oracle-database容器实例并且在后台以守护进程运行 (一次性命令 删除实例后可以重新运行生成新实例)</span></span><br><span class="line">docker run --name oracle_database -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c</span><br><span class="line"><span class="comment"># 进入docker-oracle-database容器终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -it oracle_database /bin/bash </span><br><span class="line"><span class="comment"># 终止运行docker-oracle-database容器</span></span><br><span class="line">docker stop oracle_database</span><br><span class="line"><span class="comment"># 启动运行docker-oracle-database容器</span></span><br><span class="line">docker start oracle_database</span><br><span class="line"><span class="comment"># 重新启动docker-oracle-database容器</span></span><br><span class="line">docker restart oracle_database</span><br><span class="line"><span class="comment"># 删除此docker-oracle-database容器实例</span></span><br><span class="line">docker rm oracle_database</span><br></pre></td></tr></table></figure>
+<h3 id="万能帮助方法"><a class="header-anchor" href="#万能帮助方法"></a>万能帮助方法:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --<span class="built_in">help</span></span><br><span class="line">docker [COMMAND] --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取更多关于docker的信息"><a class="header-anchor" href="#获取更多关于docker的信息"></a>获取更多关于docker的信息</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/">点击前往 Docker Docs</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/docker-tutorial.html">菜鸟教程的 Docker 教程</a></li>
+</ul>
+<h4 id="for-windows-users：-for-neusoft-s-students"><a class="header-anchor" href="#for-windows-users：-for-neusoft-s-students"></a>For Windows users：(for neusoft’s students)</h4>
+<p><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/windows-docker-install.html">请点击阅读 如何在Windows上安装Docker</a></p>
+<h4 id="for-windows-10-users："><a class="header-anchor" href="#for-windows-10-users："></a>For Windows 10 users：</h4>
+<p>TL;DR 总之就是你开启了Docker 可能会与你的大数据项目的虚拟机不兼容</p>
+<p>使用Docker时候可能会修改你的Windows虚拟架构 启动组件 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hyper-V">Hyper-V</a><br>
+『Warning』启动Hyper-V组件会使你的Windows也虚拟在Hyper-V架构上面<br>
+可能会有部分性能损失（估计在10%-20%左右）<br>
+而且会和现有的半虚拟化冲突（简而言之就是开启之后无法使用 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/VMware_Workstation">VMware</a> &amp; <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/VirtualBox">VirtualBox</a>）<br>
+（不建议VirtualBox启动软件虚拟化 因为那样虚拟机的性能极低 而且无法虚拟64位系统）</p>
+<p>2020/03/03 更新：<br>
+在未来的<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-insider/at-home/whats-new-wip-at-home-20h1">Windows 10 20H1</a>/<a target="_blank" rel="noopener" href="https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html">VMware 20H1</a>/<a target="_blank" rel="noopener" href="https://forums.virtualbox.org/viewtopic.php?f=6&amp;t=90853">VirtualBox 6.0</a> Hyper-V与其他虚拟化软件相兼容</p>
+<h3 id="以下是faq"><a class="header-anchor" href="#以下是faq"></a>以下是FAQ:</h3>
+<h4 id="docker-下载"><a class="header-anchor" href="#docker-下载"></a>Docker 下载</h4>
+<p><a target="_blank" rel="noopener" href="https://www.docker.com/community-edition">Docker-ce版本下载</a></p>
+<h4 id="docker-安装"><a class="header-anchor" href="#docker-安装"></a>Docker 安装</h4>
+<p>请选择对应系统安装教程</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/windows-docker-install.html">Windows安装</a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/macos-docker-install.html">macOS安装</a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/ubuntu-docker-install.html">Ubuntu安装</a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/centos-docker-install.html">CentOS安装</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h4 id="docker-image下载速度特别慢？"><a class="header-anchor" href="#docker-image下载速度特别慢？"></a>Docker-image下载速度特别慢？！</h4>
+<p>以下三种方法可选择</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/26d0ebd86673">为 Docker 设置代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rofl0r/proxychains-ng">proxychains-ng 强制代理软件</a></li>
+<li><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/29941">aliyun mirrors 镜像加速</a></li>
+</ul>
+<h4 id="运行完命令-无反应"><a class="header-anchor" href="#运行完命令-无反应"></a>运行完命令 无反应</h4>
+<p>运行完<code>docker run --name oracle_database -d -p 8080:8080 -p 1521:1521 sath89/oracle-12c</code> 就返回一串随机数</p>
+<ul>
+<li>首先你需要知道 <code>-d</code> 参数的意思是后台运行 所以需要用 <code>docker exec</code> 进入容器</li>
+<li>执行 <code>docker exec -it oracle_database /bin/bash</code> 就可以进入容器终端了</li>
+<li>此时执行 <code>sqlplus</code> 就可以连接数据库了</li>
+</ul>
+<h4 id="oracle数据库账号密码是多少？"><a class="header-anchor" href="#oracle数据库账号密码是多少？"></a>Oracle数据库账号密码是多少？</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Account</th>
+<th style="text-align:center">Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SYSTEM</code></td>
+<td style="text-align:center"><code>oracle</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SYS</code></td>
+<td style="text-align:center"><code>oracle</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SCOTT</code></td>
+<td style="text-align:center"><code>tiger</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="怎么退出容器终端啊"><a class="header-anchor" href="#怎么退出容器终端啊"></a>怎么退出容器终端啊</h4>
+<p>在终端输入命令<code>exit</code> 按Enter就可以退出终端了</p>
+<h4 id="如何终止容器的运行？"><a class="header-anchor" href="#如何终止容器的运行？"></a>如何终止容器的运行？</h4>
+<p>在终端里输入 <code>docker stop oracle_database</code> 就可以终止容器运行了</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/" title="Oracle数据库运行在Docker里的相关问题" target="_blank" rel="external">https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/rabenda" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/rabenda" target="_blank"><span class="text-dark">Revy</span><small class="ml-1x">Developer</small></a></h3>
+        <div>程序员, 喜欢maimai</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/" title="sunpinyin双拼问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rabenda" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/rabenda" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Rabenda
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-159539835-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
