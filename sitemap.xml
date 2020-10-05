@@ -4,99 +4,334 @@
   <url>
     <loc>https://rabenda.tk/2020/08/10/zfs-replace-update/</loc>
     
-    <lastmod>2020-08-10T15:28:54.030Z</lastmod>
+    <lastmod>2020-08-10</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2020/05/15/Android-Development/</loc>
     
-    <lastmod>2020-05-15T05:01:34.840Z</lastmod>
+    <lastmod>2020-05-15</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/about/index.html</loc>
     
-    <lastmod>2020-04-11T15:48:18.600Z</lastmod>
+    <lastmod>2020-04-11</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2019/10/25/Ryzen-Machine/</loc>
     
-    <lastmod>2020-03-26T10:52:12.820Z</lastmod>
+    <lastmod>2020-03-26</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2020/03/02/Build-Openwrt/</loc>
     
-    <lastmod>2020-03-26T10:46:49.230Z</lastmod>
+    <lastmod>2020-03-26</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2020/03/16/WSL-Linux/</loc>
     
-    <lastmod>2020-03-17T10:30:20.290Z</lastmod>
+    <lastmod>2020-03-17</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2020/03/04/gentoo/</loc>
     
-    <lastmod>2020-03-16T09:08:28.540Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2020/03/03/NAS/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2019/07/28/new-laptop/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
+    <lastmod>2020-03-16</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2018/05/10/Docker-image-oracle-database-Install/</loc>
     
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2019/10/29/surge-mac-for-v2ray/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rabenda.tk/2018/12/14/Install-FreeBSD/</loc>
-    
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
+    <lastmod>2020-03-16</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/2018/05/10/Ubuntu-17-10-sunpinyin-shuangpin/</loc>
     
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
+    <lastmod>2020-03-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/2018/12/14/Install-FreeBSD/</loc>
+    
+    <lastmod>2020-03-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/2019/07/28/new-laptop/</loc>
+    
+    <lastmod>2020-03-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/2019/10/29/surge-mac-for-v2ray/</loc>
+    
+    <lastmod>2020-03-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/2020/03/03/NAS/</loc>
+    
+    <lastmod>2020-03-16</lastmod>
     
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/index.html</loc>
     
-    <lastmod>2020-03-16T06:09:02.790Z</lastmod>
+    <lastmod>2020-03-16</lastmod>
     
   </url>
+  
+
+  <url>
+    <loc>https://rabenda.tk/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://rabenda.tk/tags/docker/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/oracle/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Ubuntu/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/OS/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/pinyin/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Ubuntu-17-10/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/FreeBSD/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/ThinkPad/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/x1c-6th/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/laptop/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/%E9%97%B2%E9%B1%BC/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Ryzen/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/RD500/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/SN550/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Windows-10/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Hyper-V/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/v2ray/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/surge/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Openwrt/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/lean-s-lede/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/x86/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/ACRH17/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/phicomm-k1/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/NAS/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Linux/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/DSM/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/FreeNAS/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/J1900/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/Gentoo/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/linux/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/wsl/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/zfs/</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
   
 </urlset>

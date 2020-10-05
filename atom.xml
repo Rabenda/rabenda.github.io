@@ -81,7 +81,7 @@
         
         
           &lt;h1&gt;开宗明义&lt;/h1&gt;
-&lt;p&gt;&lt;font size=&quot;6&quot;&gt;不推荐wsl1转制成wsl2&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=6&gt;不推荐wsl1转制成wsl2&lt;/font&gt;&lt;/p&gt;
 &lt;p&gt;原因就是再转制的过程中 文件的mode属性会丢失&lt;/p&gt;
 &lt;p&gt;也不推荐相互转 因为文件系统不同
         
@@ -116,7 +116,7 @@
         
         
           &lt;h2 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h2&gt;
-&lt;p&gt;&lt;font size=&quot;6&quot;&gt;Linux 就应该不要选择使用桌面&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=6&gt;Linux 就应该不要选择使用桌面&lt;/font&gt;&lt;/p&gt;
 &lt;h3 id=&quot;不选择桌面的原因&quot;&gt;&lt;a
         
       
@@ -219,7 +219,7 @@
         
         
           &lt;h3 id=&quot;ssr&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ssr&quot;&gt;&lt;/a&gt;SSR&lt;/h3&gt;
-&lt;p&gt;之前在朋友家里被骗合购&lt;a href=&quot;https://nssurge.com/&quot; target=&quot;_blank&quot;
+&lt;p&gt;之前在朋友家里被骗合购&lt;a href=&quot;https://nssurge.com/&quot;&gt;Surge for mac&lt;/a&gt;
         
       
     
@@ -246,7 +246,7 @@
         
         
           &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
-&lt;p&gt;&lt;font size=&quot;8&quot;&gt;台式机真香&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=8&gt;台式机真香&lt;/font&gt;&lt;/p&gt;
 &lt;h3 id=&quot;现行配置&quot;&gt;&lt;a class=&quot;header-anchor&quot;
         
       
@@ -280,7 +280,7 @@
         
         
           &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
-&lt;p&gt;&lt;font size=&quot;6&quot;&gt;&lt;strong&gt;没事就不要碰笔记本，更不要碰商务本&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=6&gt;&lt;strong&gt;没事就不要碰笔记本，更不要碰商务本&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
 &lt;h3
         
       
@@ -314,7 +314,7 @@
         
         
           &lt;h3 id=&quot;开宗明义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开宗明义&quot;&gt;&lt;/a&gt;开宗明义&lt;/h3&gt;
-&lt;p&gt;&lt;font size=&quot;6&quot;&gt;&lt;strong&gt;Unix系统就不要搞Xorg这种幺蛾子了&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=6&gt;&lt;strong&gt;Unix系统就不要搞Xorg这种幺蛾子了&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
 &lt;h3
         
       
@@ -379,7 +379,8 @@
       
         
         
-          &lt;p&gt;&lt;a href=&quot;https://github.com/MaksymBilenko/docker-oracle-12c&quot; target=&quot;_blank&quot;
+          &lt;p&gt;&lt;a href=&quot;https://github.com/MaksymBilenko/docker-oracle-12c&quot;&gt;MaksymBilenko/docker-oracle-12c&lt;/a&gt;&lt;br&gt;
+以上是oracle-database 12c的Docker镜像
         
       
     
