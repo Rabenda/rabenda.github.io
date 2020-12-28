@@ -26,7 +26,7 @@
 <meta property="og:description" content="开宗明义 不推荐wsl1转制成wsl2 原因就是再转制的过程中 文件的mode属性会丢失 也不推荐相互转 因为文件系统不同 所以属性存储的位置是不一样的 依赖条件  Windows 10 build 18917 及其更高版本 Windows Subsystem for Linux 组件开启 Virual Machine Platform 组件开启  先行设置 123456# 开启 Windows">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-03-16T07:33:15.000Z">
-<meta property="article:modified_time" content="2020-03-17T10:30:20.290Z">
+<meta property="article:modified_time" content="2020-12-28T23:54:29.380Z">
 <meta property="article:author" content="Rabenda">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="Hyper-V">
@@ -323,7 +323,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/16/WSL-Linux/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 502(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 647(words)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2(minutes)</span>
@@ -365,8 +365,13 @@
 </tr>
 <tr>
 <td style="text-align:left">Gentoo</td>
-<td style="text-align:left">–</td>
+<td style="text-align:left">v0.1-alpha1</td>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/chriscpritchard/gentoo-wsl2/releases/download/v0.1-alpha1/gentoo.tar">tar</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Gentoo amd64 nomultilib</td>
+<td style="text-align:left">–</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gentoo/releases/amd64/autobuilds/20201227T214503Z/stage3-amd64-nomultilib-20201227T214503Z.tar.xz">tar</a></td>
 </tr>
 <tr>
 <td style="text-align:left">ArchLinux</td>
@@ -379,7 +384,7 @@
 <p>导入完成之后 之后要做以下几个操作</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新用户 ubuntu 没有 wheel 组; gentoo/ArchLinux 没有 sudo 组</span></span><br><span class="line">useradd -m -G users,wheel,sudo,audio -s /bin/bash &lt;UserName&gt;</span><br><span class="line">passwd &lt;UserName&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取用户id</span></span><br><span class="line">id -u &lt;UserName&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置默认用户</span></span><br><span class="line"><span class="comment"># 获取 UUID</span></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss\ | <span class="built_in">Get-ItemProperty</span> |<span class="built_in">Select-Object</span> <span class="literal">-Property</span> DistributionName,PSChildName</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PSChildName 显示的就是 distro-UUID</span></span><br><span class="line">DistributionName PSChildName</span><br><span class="line">---------------- -----------</span><br><span class="line">gentoo           &#123;<span class="number">642</span>d335d<span class="literal">-f7ad</span><span class="literal">-46bb</span><span class="literal">-9c11</span><span class="literal">-fdee96b4644f</span>&#125;</span><br><span class="line">ArchLinux        &#123;b8690f59<span class="literal">-f6e3</span><span class="literal">-4eea</span><span class="literal">-bd44</span><span class="literal">-b16893f4cbc5</span>&#125;</span><br><span class="line">Ubuntu           &#123;e566c16a<span class="literal">-b047</span><span class="literal">-46da</span><span class="literal">-ae71</span><span class="literal">-880838d384ab</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PSChildName 显示的就是 distro-UUID</span></span><br><span class="line">DistributionName PSChildName</span><br><span class="line">---------------- -----------</span><br><span class="line">gentoo           &#123;<span class="number">642</span>d335d<span class="literal">-f7ad</span><span class="literal">-46bb</span><span class="literal">-9c11</span><span class="literal">-fdee96b4644f</span>&#125;</span><br><span class="line">Gentoo           &#123;<span class="number">96173873</span><span class="literal">-9dd2</span><span class="literal">-4971</span><span class="literal">-8f30</span><span class="literal">-64aba57cd4dd</span>&#125;</span><br><span class="line">ArchLinux        &#123;b8690f59<span class="literal">-f6e3</span><span class="literal">-4eea</span><span class="literal">-bd44</span><span class="literal">-b16893f4cbc5</span>&#125;</span><br><span class="line">Ubuntu           &#123;e566c16a<span class="literal">-b047</span><span class="literal">-46da</span><span class="literal">-ae71</span><span class="literal">-880838d384ab</span>&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入注册表</span></span><br><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\&#123;distro<span class="literal">-UUID</span>&#125;</span><br><span class="line"><span class="comment"># 修改DefaultUid</span></span><br><span class="line">设置 DefaultUid 为 上一步获取的 id</span><br></pre></td></tr></table></figure>
 <p>这样子操作之后 wsl2 就以新建的用户启动了</p>
 <p>当然也可以设置其他的注册表项</p>
@@ -417,6 +422,12 @@
 <p><code>HOSTTYPE=x86_64 LANG=en_US.UTF-8 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</code></p>
 <p><code>KernelCommandLine</code> 的一个参考设置</p>
 <p><code>BOOT_IMAGE=/kernel init=/init</code></p>
+<h1>自定义内核</h1>
+<p>安装一个最新的Ubuntu系统</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多核编译定制内核 推荐编译5.4.x</span></span><br><span class="line">sudo apt install build-essential flex bison libssl-dev libelf-dev</span><br><span class="line">make KCONFIG_CONFIG=Microsoft/config-wsl -j`nproc`</span><br><span class="line">cp vmlinux /mnt/c/kernel/vmlinux</span><br><span class="line"><span class="comment"># 4.19.x在gcc-10下有编译错误</span></span><br><span class="line"><span class="comment"># arch/x86/boot/compressed/kaslr_64.c:33 增加 extern</span></span><br></pre></td></tr></table></figure>
+<h1>配置wslconfig</h1>
+<p>编辑 <code>%USERPROFILE%/.wslconfig</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">kernel</span>=C:\\kernel\\vmlinux <span class="comment"># 设置自定义内核</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB <span class="comment"># 限制内存大小</span></span><br><span class="line"><span class="comment">#processors= # 限制wsl2处理器数量</span></span><br><span class="line"><span class="comment">#swap=</span></span><br><span class="line"><span class="comment">#swapFile=</span></span><br><span class="line"><span class="attr">localhostForwarding</span>=<span class="literal">true</span> <span class="comment"># 允许本地转发</span></span><br></pre></td></tr></table></figure>
 <h1>参考连接</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://aka.ms/wsl2">wsl2的介绍</a></li>
@@ -425,6 +436,8 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/yuk7/ArchWSL">ArchWSL</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL/issues/4276#issuecomment-509364493">设置wsl默认用户</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL2-Linux-Kernel">wsl2-linux-kernel</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.moe/gentoo-on-wsl-2">gentoo-on-wsl-2</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL2-Linux-Kernel/pull/215">wsl2内核编译</a></li>
 </ul>
 
       
