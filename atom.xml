@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rabenda.tk/"/>
-  <updated>2020-08-10T15:28:54.030Z</updated>
+  <updated>2021-02-12T19:07:16.230Z</updated>
   <id>https://rabenda.tk/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>clash-tproxy 设置网关代理</title>
+    <link href="https://rabenda.tk/2021/02/13/clash-tproxy/"/>
+    <id>https://rabenda.tk/2021/02/13/clash-tproxy/</id>
+    <published>2021-02-12T18:39:59.000Z</published>
+    <updated>2021-02-12T19:07:16.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;&lt;code&gt;config.yml&lt;/code&gt; 配置&lt;/h1&gt;
+&lt;p&gt;增加 &lt;code&gt;redir-port&lt;/code&gt; &lt;code&gt;tproxy-port&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="clash" scheme="https://rabenda.tk/tags/clash/"/>
+    
+      <category term="tproxy" scheme="https://rabenda.tk/tags/tproxy/"/>
+    
+      <category term="iptables" scheme="https://rabenda.tk/tags/iptables/"/>
+    
+      <category term="yacd" scheme="https://rabenda.tk/tags/yacd/"/>
+    
+  </entry>
   
   <entry>
     <title>ZFS替换与升级</title>
@@ -237,7 +269,7 @@
     <link href="https://rabenda.tk/2019/10/25/Ryzen-Machine/"/>
     <id>https://rabenda.tk/2019/10/25/Ryzen-Machine/</id>
     <published>2019-10-25T00:41:48.000Z</published>
-    <updated>2020-03-26T10:52:12.820Z</updated>
+    <updated>2020-12-28T23:58:28.630Z</updated>
     
     <summary type="html">
     
