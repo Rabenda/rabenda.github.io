@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rabenda.tk/"/>
-  <updated>2021-02-12T19:18:23.540Z</updated>
+  <updated>2021-02-14T09:08:21.390Z</updated>
   <id>https://rabenda.tk/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gentoo 上配置 Samba</title>
+    <link href="https://rabenda.tk/2021/02/14/samba-in-gentoo/"/>
+    <id>https://rabenda.tk/2021/02/14/samba-in-gentoo/</id>
+    <published>2021-02-14T08:48:09.000Z</published>
+    <updated>2021-02-14T09:08:21.390Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;安装 &lt;code&gt;Samba&lt;/code&gt;&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gentoo" scheme="https://rabenda.tk/tags/gentoo/"/>
+    
+      <category term="samba" scheme="https://rabenda.tk/tags/samba/"/>
+    
+  </entry>
   
   <entry>
     <title>clash-tproxy 设置网关代理</title>
@@ -171,7 +198,7 @@
     <link href="https://rabenda.tk/2020/03/03/NAS/"/>
     <id>https://rabenda.tk/2020/03/03/NAS/</id>
     <published>2020-03-03T00:23:48.000Z</published>
-    <updated>2020-12-28T23:39:41.600Z</updated>
+    <updated>2021-02-14T09:09:55.970Z</updated>
     
     <summary type="html">
     

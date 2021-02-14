@@ -17,25 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>WSL2的Linux安装与使用 | Hexo</title>
-  <meta name="description" content="开宗明义 不推荐wsl1转制成wsl2 原因就是再转制的过程中 文件的mode属性会丢失 也不推荐相互转 因为文件系统不同 所以属性存储的位置是不一样的 依赖条件  Windows 10 build 18917 及其更高版本 Windows Subsystem for Linux 组件开启 Virual Machine Platform 组件开启  先行设置 123456# 开启 Windows">
+  <title>Gentoo 上配置 Samba | Hexo</title>
+  <meta name="description" content="安装 Samba 123456# &#x2F;usr&#x2F;portage&#x2F;package.use 配置 USE# sambanet-fs&#x2F;samba -cups -client -system-mitkrb5 # 移除域控和不必要的依赖sys-libs&#x2F;ldb -ldap # 移除域控# Install Sambaemerge --ask --noreplace net-fs&#x2F;samba 配置 Samba 创建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WSL2的Linux安装与使用">
-<meta property="og:url" content="https://rabenda.tk/2020/03/16/WSL-Linux/index.html">
+<meta property="og:title" content="Gentoo 上配置 Samba">
+<meta property="og:url" content="https://rabenda.tk/2021/02/14/samba-in-gentoo/index.html">
 <meta property="og:site_name" content="Rabenda的自言自语之地">
-<meta property="og:description" content="开宗明义 不推荐wsl1转制成wsl2 原因就是再转制的过程中 文件的mode属性会丢失 也不推荐相互转 因为文件系统不同 所以属性存储的位置是不一样的 依赖条件  Windows 10 build 18917 及其更高版本 Windows Subsystem for Linux 组件开启 Virual Machine Platform 组件开启  先行设置 123456# 开启 Windows">
+<meta property="og:description" content="安装 Samba 123456# &#x2F;usr&#x2F;portage&#x2F;package.use 配置 USE# sambanet-fs&#x2F;samba -cups -client -system-mitkrb5 # 移除域控和不必要的依赖sys-libs&#x2F;ldb -ldap # 移除域控# Install Sambaemerge --ask --noreplace net-fs&#x2F;samba 配置 Samba 创建">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-03-16T07:33:15.000Z">
-<meta property="article:modified_time" content="2021-02-12T19:40:00.350Z">
+<meta property="article:published_time" content="2021-02-14T08:48:09.000Z">
+<meta property="article:modified_time" content="2021-02-14T09:08:21.390Z">
 <meta property="article:author" content="Rabenda">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Hyper-V">
-<meta property="article:tag" content="Gentoo">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="wsl">
+<meta property="article:tag" content="gentoo">
+<meta property="article:tag" content="samba">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://rabenda.tk/2020/03/16/WSL-Linux/index.html">
+  <link rel="canonical" href="https://rabenda.tk/2021/02/14/samba-in-gentoo/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Rabenda的自言自语之地" type="application/atom+xml">
   
@@ -289,14 +286,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-WSL-Linux" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-samba-in-gentoo" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      WSL2的Linux安装与使用
+      Gentoo 上配置 Samba
     </h1>
   
 
@@ -304,138 +301,48 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/16/WSL-Linux/" class="article-date">
-	  <time datetime="2020-03-16T07:33:15.000Z" itemprop="datePublished">2020-03-16</time>
+	<a href="/2021/02/14/samba-in-gentoo/" class="article-date">
+	  <time datetime="2021-02-14T08:48:09.000Z" itemprop="datePublished">2021-02-14</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Gentoo/" rel="tag">Gentoo</a>, <a class="article-tag-link-link" href="/tags/Hyper-V/" rel="tag">Hyper-V</a>, <a class="article-tag-link-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>, <a class="article-tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="article-tag-link-link" href="/tags/wsl/" rel="tag">wsl</a>
+	<a class="article-tag-link-link" href="/tags/gentoo/" rel="tag">gentoo</a>, <a class="article-tag-link-link" href="/tags/samba/" rel="tag">samba</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/16/WSL-Linux/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/14/samba-in-gentoo/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 679(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 154(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1>开宗明义</h1>
-<p><font size=6>不推荐wsl1转制成wsl2</font></p>
-<p>原因就是再转制的过程中 文件的mode属性会丢失</p>
-<p>也不推荐相互转 因为文件系统不同 所以属性存储的位置是不一样的</p>
-<h1>依赖条件</h1>
-<ol>
-<li>Windows 10 build 18917 及其更高版本</li>
-<li>Windows Subsystem for Linux 组件开启</li>
-<li>Virual Machine Platform 组件开启</li>
-</ol>
-<h1>先行设置</h1>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启 Windows Subsystem for Linux </span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br><span class="line"><span class="comment"># 开启 Virual Machine Platform</span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line"><span class="comment"># (可选) 设置wsl默认版本</span></span><br><span class="line">wsl -<span class="literal">-set</span><span class="literal">-default</span><span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h1>安装系统</h1>
-<p>不推荐从 <code>Windows Store</code> 下载相关发行版</p>
-<p>我们使用 <code>wsl.exe</code> 手动部署</p>
-<p>首先准备发行版 <code>tar</code> 包</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">发行版</th>
-<th style="text-align:left">版本</th>
-<th style="text-align:left">下载相关</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Ubuntu</td>
-<td style="text-align:left">18.04(Bionic)</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-wsl.rootfs.tar.gz">tar.gz</a></td>
-</tr>
-<tr>
-<td style="text-align:left">Gentoo</td>
-<td style="text-align:left">v0.1-alpha1</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/chriscpritchard/gentoo-wsl2/releases/download/v0.1-alpha1/gentoo.tar">tar</a></td>
-</tr>
-<tr>
-<td style="text-align:left">Gentoo amd64 nomultilib</td>
-<td style="text-align:left">–</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gentoo/releases/amd64/autobuilds/20201227T214503Z/stage3-amd64-nomultilib-20201227T214503Z.tar.xz">tar</a></td>
-</tr>
-<tr>
-<td style="text-align:left">ArchLinux</td>
-<td style="text-align:left">20.2.7.0</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/yuk7/ArchWSL/releases/download/20.2.7.0/Arch.zip">zip</a></td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入系统</span></span><br><span class="line">wsl -<span class="literal">-import</span> &lt;Distro&gt; &lt;InstallLocation&gt; &lt;FileName&gt; -<span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>导入完成之后 之后要做以下几个操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新用户 ubuntu 没有 wheel 组; gentoo/ArchLinux 没有 sudo 组</span></span><br><span class="line">useradd -m -G users,wheel,sudo,audio -s /bin/bash &lt;UserName&gt;</span><br><span class="line">passwd &lt;UserName&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取用户id</span></span><br><span class="line">id -u &lt;UserName&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置默认用户</span></span><br><span class="line"><span class="comment"># 获取 UUID</span></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss\ | <span class="built_in">Get-ItemProperty</span> |<span class="built_in">Select-Object</span> <span class="literal">-Property</span> DistributionName,PSChildName</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PSChildName 显示的就是 distro-UUID</span></span><br><span class="line">DistributionName PSChildName</span><br><span class="line">---------------- -----------</span><br><span class="line">gentoo           &#123;<span class="number">642</span>d335d<span class="literal">-f7ad</span><span class="literal">-46bb</span><span class="literal">-9c11</span><span class="literal">-fdee96b4644f</span>&#125;</span><br><span class="line">Gentoo           &#123;<span class="number">96173873</span><span class="literal">-9dd2</span><span class="literal">-4971</span><span class="literal">-8f30</span><span class="literal">-64aba57cd4dd</span>&#125;</span><br><span class="line">ArchLinux        &#123;b8690f59<span class="literal">-f6e3</span><span class="literal">-4eea</span><span class="literal">-bd44</span><span class="literal">-b16893f4cbc5</span>&#125;</span><br><span class="line">Ubuntu           &#123;e566c16a<span class="literal">-b047</span><span class="literal">-46da</span><span class="literal">-ae71</span><span class="literal">-880838d384ab</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入注册表</span></span><br><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\&#123;distro<span class="literal">-UUID</span>&#125;</span><br><span class="line"><span class="comment"># 修改DefaultUid</span></span><br><span class="line">设置 DefaultUid 为 上一步获取的 id</span><br></pre></td></tr></table></figure>
-<p>这样子操作之后 wsl2 就以新建的用户启动了</p>
-<p>当然也可以设置其他的注册表项</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">注册表项名</th>
-<th style="text-align:left">值意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>BasePath</code></td>
-<td style="text-align:left">rootfs的路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DefaultUid</code></td>
-<td style="text-align:left">默认登陆用户的UID</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DistributionName</code></td>
-<td style="text-align:left">发行版名称</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DefaultEnvironment</code></td>
-<td style="text-align:left">环境变量设置</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>KernelCommandLine</code></td>
-<td style="text-align:left">Kernel与init设置</td>
-</tr>
-</tbody>
-</table>
-<p><code>DefaultEnvironment</code> 的一个参考设置</p>
-<p><code>HOSTTYPE=x86_64 LANG=en_US.UTF-8 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</code></p>
-<p><code>KernelCommandLine</code> 的一个参考设置</p>
-<p><code>BOOT_IMAGE=/kernel init=/init</code></p>
-<h1>自定义内核</h1>
-<p>安装一个最新的Ubuntu系统</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载ms定制内核</span></span><br><span class="line"><span class="built_in">cd</span> ~/workspaces</span><br><span class="line">git <span class="built_in">clone</span> -b linux-msft-wsl-5.4.y https://github.com/microsoft/WSL2-Linux-Kernel.git</span><br><span class="line"><span class="built_in">cd</span> WSL2-Linux-Kernel</span><br><span class="line"><span class="comment"># 多核编译定制内核 推荐编译5.4.x</span></span><br><span class="line">sudo apt install build-essential flex bison libssl-dev libelf-dev</span><br><span class="line">make KCONFIG_CONFIG=Microsoft/config-wsl -j`nproc`</span><br><span class="line">rm -rf /mnt/c/kernel/vmlinux</span><br><span class="line">cp vmlinux /mnt/c/kernel/vmlinux</span><br><span class="line"><span class="comment"># 4.19.x在gcc-10下有编译错误</span></span><br><span class="line"><span class="comment"># arch/x86/boot/compressed/kaslr_64.c:33 增加 extern</span></span><br></pre></td></tr></table></figure>
-<h1>配置wslconfig</h1>
-<p>编辑 <code>%USERPROFILE%/.wslconfig</code></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[wsl2]</span></span><br><span class="line"><span class="attr">kernel</span>=C:\\kernel\\vmlinux <span class="comment"># 设置自定义内核</span></span><br><span class="line"><span class="attr">memory</span>=<span class="number">32</span>GB <span class="comment"># 限制内存大小</span></span><br><span class="line"><span class="comment">#processors= # 限制wsl2处理器数量</span></span><br><span class="line"><span class="comment">#swap=</span></span><br><span class="line"><span class="comment">#swapFile=</span></span><br><span class="line"><span class="attr">localhostForwarding</span>=<span class="literal">true</span> <span class="comment"># 允许本地转发</span></span><br></pre></td></tr></table></figure>
-<h1>参考连接</h1>
+        <h1>安装 <code>Samba</code></h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/portage/package.use 配置 USE</span></span><br><span class="line"><span class="comment"># samba</span></span><br><span class="line">net-fs/samba -cups -client -system-mitkrb5 <span class="comment"># 移除域控和不必要的依赖</span></span><br><span class="line">sys-libs/ldb -ldap <span class="comment"># 移除域控</span></span><br><span class="line"><span class="comment"># Install Samba</span></span><br><span class="line">emerge --ask --noreplace net-fs/samba</span><br></pre></td></tr></table></figure>
+<h1>配置 <code>Samba</code></h1>
+<p>创建要共享的 <code>Samba</code> 目录并配置 <code>smb.conf</code></p>
+<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/samba/smb.conf</span></span><br><span class="line">[anime]</span><br><span class="line"><span class="attribute">path</span> = /data/bt/downloads</span><br><span class="line"><span class="attribute">public</span> = yes</span><br><span class="line"><span class="attribute">writable</span> = yes</span><br><span class="line"><span class="attribute">valid</span> users = <span class="variable">$&#123;USER&#125;</span> # 替换成对应用户</span><br><span class="line"><span class="attribute">create</span> mask = <span class="number">0644</span></span><br><span class="line"><span class="attribute">force</span> create mode = <span class="number">0644</span></span><br><span class="line"><span class="attribute">directory</span> mask = <span class="number">0755</span></span><br><span class="line"><span class="attribute">force</span> directory mode = <span class="number">0755</span></span><br><span class="line"><span class="attribute">available</span> = yes</span><br></pre></td></tr></table></figure>
+<p>创建 <code>Samba</code> 用户密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<h1>启动 Samba</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemd</span></span><br><span class="line">systemctl <span class="built_in">enable</span> smb.service</span><br><span class="line">systemctl start smb.service</span><br></pre></td></tr></table></figure>
+<h1>参考资料</h1>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl2">wsl2的介绍</a></li>
-<li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/WSL">Ubuntu-wiki-wsl</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/chriscpritchard/gentoo-wsl2">Gentoo-wsl2</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/yuk7/ArchWSL">ArchWSL</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL/issues/4276#issuecomment-509364493">设置wsl默认用户</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL2-Linux-Kernel">wsl2-linux-kernel</a></li>
-<li><a target="_blank" rel="noopener" href="https://developer.moe/gentoo-on-wsl-2">gentoo-on-wsl-2</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL2-Linux-Kernel/pull/215">wsl2内核编译</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.gentoo.org/wiki/Samba">Gentoo Samba Wiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.gentoo.org/wiki/Samba/Guide">Gentoo Samba/Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gzdaijie/p/5194033.html">Linux与Windows共享文件夹之samba的安装与使用（Ubuntu为例）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wsclinux/article/details/75214842">添加samba用户，并设置密码</a></li>
 </ul>
 
       
@@ -446,7 +353,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://rabenda.tk/2020/03/16/WSL-Linux/" title="WSL2的Linux安装与使用" target="_blank" rel="external">https://rabenda.tk/2020/03/16/WSL-Linux/</a>
+      <a href="https://rabenda.tk/2021/02/14/samba-in-gentoo/" title="Gentoo 上配置 Samba" target="_blank" rel="external">https://rabenda.tk/2021/02/14/samba-in-gentoo/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -492,13 +399,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/05/15/Android-Development/" title="Android-Development"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/03/04/gentoo/" title="Gentoo 安装笔记"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/02/13/clash-tproxy/" title="clash-tproxy 设置网关代理"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
