@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rabenda.tk/2021/02/18/systemd-nspawn-chroot/</loc>
+    
+    <lastmod>2021-02-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://rabenda.tk/2020/03/03/NAS/</loc>
     
     <lastmod>2021-02-14</lastmod>
@@ -116,7 +123,7 @@
 
   <url>
     <loc>https://rabenda.tk/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -124,266 +131,287 @@
   
   <url>
     <loc>https://rabenda.tk/tags/docker/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/oracle/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Ubuntu/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/OS/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/pinyin/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Ubuntu-17-10/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/FreeBSD/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/ThinkPad/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/x1c-6th/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/laptop/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/%E9%97%B2%E9%B1%BC/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Ryzen/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/RD500/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/SN550/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Windows-10/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Hyper-V/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/v2ray/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/surge/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Openwrt/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/lean-s-lede/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/x86/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/ACRH17/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/phicomm-k1/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/NAS/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Linux/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/DSM/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/FreeNAS/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/J1900/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/Gentoo/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/linux/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/wsl/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/zfs/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/clash/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/tproxy/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/iptables/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/yacd/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/gentoo/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://rabenda.tk/tags/samba/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/systemd/</loc>
+    <lastmod>2021-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/container/</loc>
+    <lastmod>2021-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabenda.tk/tags/ubuntu/</loc>
+    <lastmod>2021-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

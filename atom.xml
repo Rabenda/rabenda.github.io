@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rabenda.tk/"/>
-  <updated>2021-02-14T09:08:21.390Z</updated>
+  <updated>2021-02-17T20:16:11.680Z</updated>
   <id>https://rabenda.tk/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>systemd-nspawn 容器使用</title>
+    <link href="https://rabenda.tk/2021/02/18/systemd-nspawn-chroot/"/>
+    <id>https://rabenda.tk/2021/02/18/systemd-nspawn-chroot/</id>
+    <published>2021-02-17T19:53:59.000Z</published>
+    <updated>2021-02-17T20:16:11.680Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;简介&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;systemd-nspawn&lt;/code&gt; 比 &lt;code&gt;chroot&lt;/code&gt; 可以启动 &lt;code&gt;systemd&lt;/code&gt; 但是要求目标系统有
+        
+      
+    
+    </summary>
+    
+    
+      <category term="systemd" scheme="https://rabenda.tk/tags/systemd/"/>
+    
+      <category term="container" scheme="https://rabenda.tk/tags/container/"/>
+    
+      <category term="ubuntu" scheme="https://rabenda.tk/tags/ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>Gentoo 上配置 Samba</title>

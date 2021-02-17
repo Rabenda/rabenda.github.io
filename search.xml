@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>systemd-nspawn 容器使用</title>
+      <link href="2021/02/18/systemd-nspawn-chroot/"/>
+      <url>2021/02/18/systemd-nspawn-chroot/</url>
+      
+        <content type="html"><![CDATA[<h1>简介</h1><p><code>systemd-nspawn</code> 比 <code>chroot</code> 可以启动 <code>systemd</code> 但是要求目标系统有 <code>systemd</code></p><h1>安装</h1><ul><li><code>systemd-nspawn</code> systemd 自带</li><li><code>debootstrap</code> 部署 debian 系发行版工具 要求 <code>root</code> 下使用</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge -av debootstrap</span><br></pre></td></tr></table></figure><h1>部署 <code>Ubuntu</code></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$WORKSPACES</span></span><br><span class="line">mkdir ubuntu</span><br><span class="line">debootstrap --arch=amd64 focal ubuntu https://opentuna.cn/ubuntu/</span><br></pre></td></tr></table></figure><h2 id="挂载目录-nodev"><a class="header-anchor" href="#挂载目录-nodev"></a>挂载目录 <code>nodev</code></h2><p><code>debootstrap</code> 部署的时候需要目录不能有 <code>nodev</code><br>所以在 <code>zfs</code> 查看挂载属性</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看是否有 nodev on/off代表没有/有 </span></span><br><span class="line">zfs get all rpool | grep devices</span><br><span class="line"><span class="comment"># 设置取消 nodev</span></span><br><span class="line">zfs <span class="built_in">set</span> devices=on rpool</span><br></pre></td></tr></table></figure><h1><code>chroot</code> 切换目录测试效果</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 挂载相关分区</span></span><br><span class="line">mount -t proc proc <span class="variable">$WORKSPACES</span>/ubuntu/proc/</span><br><span class="line">mount -t sysfs sys <span class="variable">$WORKSPACES</span>/ubuntu/sys/</span><br><span class="line">mount -o <span class="built_in">bind</span> /dev <span class="variable">$WORKSPACES</span>/ubuntu/dev/</span><br><span class="line">mount -o <span class="built_in">bind</span> /dev/pts <span class="variable">$WORKSPACES</span>/ubuntu/dev/pts/</span><br><span class="line"></span><br><span class="line"><span class="comment"># chroot 查看效果</span></span><br><span class="line">chroot <span class="variable">$WORKSPACES</span>/ubuntu /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消挂载相关分区</span></span><br><span class="line">umount <span class="variable">$WORKSPACES</span>/ubuntu/dev/pts/</span><br><span class="line">umount <span class="variable">$WORKSPACES</span>/ubuntu/dev/</span><br><span class="line">umount <span class="variable">$WORKSPACES</span>/ubuntu/sys/</span><br><span class="line">umount <span class="variable">$WORKSPACES</span>/ubuntu/proc/</span><br></pre></td></tr></table></figure><h1><code>systemd-nspawn</code> 使用</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似 chroot 使用容器</span></span><br><span class="line">systemd-nspawn -D <span class="variable">$WORKSPACES</span>/ubuntu/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 类似 虚拟机 启动容器</span></span><br><span class="line">systemd-nspawn -b -D <span class="variable">$WORKSPACES</span>/ubuntu/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭容器</span></span><br><span class="line">machinectl poweroff ubuntu</span><br></pre></td></tr></table></figure><h1>相关资料</h1><ul><li><a href="http://www.jinbuguo.com/systemd/systemd-nspawn.html">systemd-nspawn 中文手册</a></li><li><a href="https://wiki.wh-redirect.deepin.cn/mediawiki/index.php?title=%E6%9E%84%E5%BB%BAdocker%E5%BA%94%E7%94%A8%E7%9A%84base_image">构建docker应用的base image</a></li><li><a href="https://wiki.debian.org/Debootstrap">Debootstrap</a></li><li><a href="https://gist.github.com/cdown/5c5b53e1855d7812dfbc">Debian chroot inside Arch</a></li><li><a href="https://wiki.debian.org/chroot">chroot</a></li><li><a href="https://wiki.ubuntu.com/DebootstrapChroot">DebootstrapChroot</a></li><li><a href="http://manpages.ubuntu.com/manpages/bionic/man8/zfs.8.html">Ubuntu manuals zfs</a></li><li><a href="https://www.cnblogs.com/xingmuxin/p/8446115.html">mount --bind使用方法</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> systemd </tag>
+            
+            <tag> container </tag>
+            
+            <tag> ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Gentoo 上配置 Samba</title>
       <link href="2021/02/14/samba-in-gentoo/"/>
       <url>2021/02/14/samba-in-gentoo/</url>
